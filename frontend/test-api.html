@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后端API测试</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .result {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>后端API测试</h1>
+
+    <div>
+        <h2>状态检查</h2>
+        <button onclick="checkStatus()">检查模型状态 (/api/model/status)</button>
+        <button onclick="checkModelStatus()">检查模型状态 (/api/model_status)</button>
+        <button onclick="checkDirectStatus()">直接检查模型状态 (后端URL)</button>
+        <div id="statusResult" class="result"></div>
+    </div>
+
+    <div>
+        <h2>图像检测</h2>
+        <input type="file" id="imageFile" accept="image/*">
+        <button onclick="detectImage()">检测图像 (/api/detect)</button>
+        <div id="detectResult" class="result"></div>
+    </div>
+
+    <div>
+        <h2>后端配置</h2>
+        <div style="display: flex; margin-bottom: 10px;">
+            <label style="width: 100px;">后端URL:</label>
+            <input type="text" id="backendUrl" value="http://localhost:5000" style="flex-grow: 1;">
+        </div>
+        <button onclick="testConnection()">测试连接</button>
+        <div id="connectionResult" class="result"></div>
+    </div>
+
+    <script>
+        // API基础URL，可以从输入框获取
+        function getApiBase() {
+            return document.getElementById('backendUrl').value;
+        }
+
+        async function checkStatus() {
+            try {
+                document.getElementById('statusResult').textContent = '检查中...';
+                const response = await axios.get(`${getApiBase()}/api/model/status`);
+                document.getElementById('statusResult').innerHTML = `<pre class="success">请求成功</pre><pre>${JSON.stringify(response.data, null, 2)}</pre>`;
+                analyzeModelStatus(response.data);
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('statusResult').innerHTML = `<pre class="error">错误: ${error.message}</pre><pre>${JSON.stringify(error.response?.data || {}, null, 2)}</pre>`;
+            }
+        }
+
+        async function checkModelStatus() {
+            try {
+                document.getElementById('statusResult').textContent = '检查中...';
+                const response = await axios.get(`${getApiBase()}/api/model_status`);
+                document.getElementById('statusResult').innerHTML = `<pre class="success">请求成功</pre><pre>${JSON.stringify(response.data, null, 2)}</pre>`;
+                analyzeModelStatus(response.data);
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('statusResult').innerHTML = `<pre class="error">错误: ${error.message}</pre><pre>${JSON.stringify(error.response?.data || {}, null, 2)}</pre>`;
+            }
+        }
+
+        async function checkDirectStatus() {
+            try {
+                document.getElementById('statusResult').textContent = '直接检查中...';
+                const response = await axios.get(`${getApiBase()}/model/status`);
+                document.getElementById('statusResult').innerHTML = `<pre class="success">直接请求成功</pre><pre>${JSON.stringify(response.data, null, 2)}</pre>`;
+                analyzeModelStatus(response.data);
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('statusResult').innerHTML = `<pre class="error">直接请求错误: ${error.message}</pre><pre>${JSON.stringify(error.response?.data || {}, null, 2)}</pre>`;
+            }
+        }
+
+        // 分析模型状态响应
+        function analyzeModelStatus(data) {
+            // 检查各种可能的状态字段
+            let isReady = false;
+            if ((data.success && data.loaded) || // 新API格式
+                data.loaded === true || // 旧API格式
+                (data.success === true && !('loaded' in data))) { // 只有success字段
+                isReady = true;
+            }
+
+            const result = document.getElementById('statusResult');
+            if (isReady) {
+                result.innerHTML += `<pre class="success">模型已就绪!</pre>`;
+            } else {
+                result.innerHTML += `<pre class="error">模型未就绪! 原因: ${data.error || '未知'}</pre>`;
+            }
+        }
+
+        async function detectImage() {
+            const fileInput = document.getElementById('imageFile');
+            if (!fileInput.files.length) {
+                alert('请先选择一张图片');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+
+            try {
+                document.getElementById('detectResult').textContent = '检测中...';
+                const response = await axios.post(`${getApiBase()}/api/detect`, formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    timeout: 60000
+                });
+                document.getElementById('detectResult').textContent = `检测成功，状态: ${response.data.success ? '成功' : '失败'}\n数据结构: ${JSON.stringify(Object.keys(response.data), null, 2)}`;
+
+                if (response.data.success && response.data.data && response.data.data.detected_image) {
+                    const img = document.createElement('img');
+                    img.src = `data:image/png;base64,${response.data.data.detected_image}`;
+                    img.style.maxWidth = '100%';
+                    document.getElementById('detectResult').appendChild(img);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('detectResult').textContent = `错误: ${error.message}\n${JSON.stringify(error.response?.data || {}, null, 2)}`;
+            }
+        }
+
+        async function testConnection() {
+            try {
+                document.getElementById('connectionResult').textContent = '测试连接中...';
+                const baseUrl = getApiBase();
+
+                // 尝试通用连接测试
+                const response = await axios.get(`${baseUrl}`, {
+                    timeout: 5000,
+                    validateStatus: function (status) {
+                        return true; // 接受任何状态码
+                    }
+                });
+
+                document.getElementById('connectionResult').innerHTML =
+                    `<pre class="success">连接成功</pre>` +
+                    `<pre>状态码: ${response.status}</pre>` +
+                    `<pre>URL: ${baseUrl}</pre>`;
+            } catch (error) {
+                console.error('Connection error:', error);
+                document.getElementById('connectionResult').innerHTML =
+                    `<pre class="error">连接失败: ${error.message}</pre>` +
+                    `<pre>URL: ${getApiBase()}</pre>`;
+            }
+        }
+    </script>
+</body>
+
+</html>

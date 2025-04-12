@@ -1,0 +1,724 @@
+2025-04-11 08:18:56,908 - INFO - 使用设备: cuda
+2025-04-11 08:18:56,908 - DEBUG - GPU: NVIDIA GeForce RTX 3090
+2025-04-11 08:18:56,908 - DEBUG - 总内存: 23.69 GB
+2025-04-11 08:18:56,909 - DEBUG - 可用内存: 0.00 GB
+2025-04-11 08:18:57,014 - DEBUG - 使用预训练权重: True
+2025-04-11 08:18:57,014 - DEBUG - 预训练模型路径: ../models/pretrained/yolo11m.pt
+2025-04-11 08:18:57,491 - INFO - 模型初始化完成
+2025-04-11 08:18:57,491 - DEBUG - 模型参数数量: 4.07M
+2025-04-11 08:18:57,492 - DEBUG - 
+检查数据路径:
+2025-04-11 08:18:57,492 - DEBUG - 训练图片目录: training/data/imgs
+2025-04-11 08:18:57,492 - DEBUG - 训练标签目录: training/data/labels
+2025-04-11 08:18:57,492 - DEBUG - 验证图片目录: training/data/imgs
+2025-04-11 08:18:57,492 - DEBUG - 验证标签目录: training/data/labels
+2025-04-11 08:18:57,497 - DEBUG - 
+检查数据:
+2025-04-11 08:19:00,109 - DEBUG - 批次图片形状: torch.Size([16, 3, 320, 320])
+2025-04-11 08:19:00,109 - DEBUG - 批次目标形状: torch.Size([71, 5])
+2025-04-11 08:19:00,109 - DEBUG - 目标值范围: [0.0000, 15.0000]
+2025-04-11 08:19:00,110 - DEBUG - 类别分布: [0.0, 1.0, 3.0, 4.0, 5.0, 7.0, 8.0, 10.0, 12.0, 13.0, 14.0, 15.0]
+2025-04-11 08:19:00,111 - INFO - 训练参数设置完成
+2025-04-11 08:19:00,111 - INFO - 开始训练...
+2025-04-11 08:19:00,111 - INFO - 
+Epoch 0/100
+2025-04-11 08:19:05,237 - DEBUG - Loss Components: {'xy': tensor(0.3505, device='cuda:0', grad_fn=<SumBackward0>), 'wh': tensor(3.1234, device='cuda:0', grad_fn=<SumBackward0>), 'conf': tensor(4808.8276, device='cuda:0', grad_fn=<SumBackward0>), 'cls': tensor(30.4905, device='cuda:0', grad_fn=<SumBackward0>)}
+2025-04-11 08:19:08,199 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:09,812 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:13,227 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:13,294 - INFO - Epoch [0/100] Train Loss: 27.5159 Val Loss: 0.0000
+2025-04-11 08:19:13,635 - INFO - 保存最佳模型到: ../models/checkpoints/best_model_epoch_0.pth
+2025-04-11 08:19:13,635 - INFO - 
+Epoch 1/100
+2025-04-11 08:19:15,440 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:18,042 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:20,184 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:23,072 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:23,133 - INFO - Epoch [1/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:19:23,133 - INFO - 
+Epoch 2/100
+2025-04-11 08:19:24,592 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:28,022 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:29,888 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:33,071 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:33,132 - INFO - Epoch [2/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:19:33,132 - INFO - 
+Epoch 3/100
+2025-04-11 08:19:33,838 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:38,349 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:39,474 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:44,662 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:44,744 - INFO - Epoch [3/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:19:44,744 - INFO - 
+Epoch 4/100
+2025-04-11 08:19:48,628 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:50,188 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:51,879 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:55,539 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:19:55,607 - INFO - Epoch [4/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:19:55,607 - INFO - 
+Epoch 5/100
+2025-04-11 08:19:56,350 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:00,464 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:02,715 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:05,110 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:05,175 - INFO - Epoch [5/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:20:05,175 - INFO - 
+Epoch 6/100
+2025-04-11 08:20:05,977 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:09,458 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:10,646 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:15,186 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:15,249 - INFO - Epoch [6/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:20:15,249 - INFO - 
+Epoch 7/100
+2025-04-11 08:20:15,953 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:20,573 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:22,271 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:26,239 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:26,303 - INFO - Epoch [7/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:20:26,303 - INFO - 
+Epoch 8/100
+2025-04-11 08:20:26,950 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:30,596 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:32,854 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:35,414 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:35,485 - INFO - Epoch [8/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:20:35,485 - INFO - 
+Epoch 9/100
+2025-04-11 08:20:36,220 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:40,595 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:42,223 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:45,401 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:45,467 - INFO - Epoch [9/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:20:45,467 - INFO - 
+Epoch 10/100
+2025-04-11 08:20:46,710 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:50,378 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:52,176 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:55,815 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:20:55,890 - INFO - Epoch [10/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:20:55,890 - INFO - 
+Epoch 11/100
+2025-04-11 08:20:56,671 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:00,590 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:03,272 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:05,376 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:05,444 - INFO - Epoch [11/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:21:05,445 - INFO - 
+Epoch 12/100
+2025-04-11 08:21:06,648 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:10,368 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:12,600 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:15,421 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:15,490 - INFO - Epoch [12/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:21:15,490 - INFO - 
+Epoch 13/100
+2025-04-11 08:21:16,745 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:20,699 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:22,792 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:25,982 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:26,054 - INFO - Epoch [13/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:21:26,054 - INFO - 
+Epoch 14/100
+2025-04-11 08:21:27,745 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:31,272 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:32,983 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:35,860 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:35,925 - INFO - Epoch [14/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:21:35,926 - INFO - 
+Epoch 15/100
+2025-04-11 08:21:37,877 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:40,502 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:42,749 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:45,824 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:45,885 - INFO - Epoch [15/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:21:45,886 - INFO - 
+Epoch 16/100
+2025-04-11 08:21:47,209 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:51,407 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:53,729 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:55,900 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:21:55,975 - INFO - Epoch [16/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:21:55,975 - INFO - 
+Epoch 17/100
+2025-04-11 08:21:57,786 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:01,083 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:03,986 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:06,474 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:06,544 - INFO - Epoch [17/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:22:06,545 - INFO - 
+Epoch 18/100
+2025-04-11 08:22:07,308 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:10,848 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:12,565 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:15,577 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:15,642 - INFO - Epoch [18/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:22:15,642 - INFO - 
+Epoch 19/100
+2025-04-11 08:22:17,533 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:19,667 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:22,344 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:25,047 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:25,116 - INFO - Epoch [19/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:22:25,116 - INFO - 
+Epoch 20/100
+2025-04-11 08:22:28,362 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:30,775 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:33,103 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:35,757 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:35,821 - INFO - Epoch [20/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:22:35,821 - INFO - 
+Epoch 21/100
+2025-04-11 08:22:36,593 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:40,653 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:41,746 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:45,253 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:45,322 - INFO - Epoch [21/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:22:45,322 - INFO - 
+Epoch 22/100
+2025-04-11 08:22:46,473 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:49,868 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:52,487 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:54,687 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:54,757 - INFO - Epoch [22/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:22:54,757 - INFO - 
+Epoch 23/100
+2025-04-11 08:22:56,829 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:22:59,419 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:00,928 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:05,325 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:05,389 - INFO - Epoch [23/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:23:05,389 - INFO - 
+Epoch 24/100
+2025-04-11 08:23:06,747 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:10,274 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:11,870 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:15,187 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:15,251 - INFO - Epoch [24/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:23:15,252 - INFO - 
+Epoch 25/100
+2025-04-11 08:23:17,102 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:19,689 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:21,397 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:24,785 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:24,851 - INFO - Epoch [25/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:23:24,852 - INFO - 
+Epoch 26/100
+2025-04-11 08:23:26,798 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:29,801 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:33,145 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:34,591 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:34,664 - INFO - Epoch [26/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:23:34,665 - INFO - 
+Epoch 27/100
+2025-04-11 08:23:37,137 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:39,610 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:41,139 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:44,419 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:44,480 - INFO - Epoch [27/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:23:44,480 - INFO - 
+Epoch 28/100
+2025-04-11 08:23:46,068 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:48,848 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:50,956 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:54,557 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:54,621 - INFO - Epoch [28/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:23:54,621 - INFO - 
+Epoch 29/100
+2025-04-11 08:23:55,924 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:23:59,168 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:00,250 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:04,177 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:04,242 - INFO - Epoch [29/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:24:04,242 - INFO - 
+Epoch 30/100
+2025-04-11 08:24:06,140 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:09,100 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:12,308 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:15,456 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:15,518 - INFO - Epoch [30/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:24:15,518 - INFO - 
+Epoch 31/100
+2025-04-11 08:24:17,373 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:20,187 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:21,254 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:25,697 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:25,755 - INFO - Epoch [31/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:24:25,755 - INFO - 
+Epoch 32/100
+2025-04-11 08:24:26,481 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:30,217 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:31,800 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:35,035 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:35,103 - INFO - Epoch [32/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:24:35,103 - INFO - 
+Epoch 33/100
+2025-04-11 08:24:35,731 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:39,802 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:42,040 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:45,107 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:45,176 - INFO - Epoch [33/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:24:45,176 - INFO - 
+Epoch 34/100
+2025-04-11 08:24:46,969 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:49,674 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:50,742 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:55,652 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:24:55,724 - INFO - Epoch [34/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:24:55,725 - INFO - 
+Epoch 35/100
+2025-04-11 08:24:57,576 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:01,054 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:02,166 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:05,955 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:06,011 - INFO - Epoch [35/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:25:06,011 - INFO - 
+Epoch 36/100
+2025-04-11 08:25:07,717 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:11,126 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:13,333 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:16,408 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:16,473 - INFO - Epoch [36/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:25:16,473 - INFO - 
+Epoch 37/100
+2025-04-11 08:25:17,700 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:22,033 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:23,798 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:27,929 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:27,992 - INFO - Epoch [37/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:25:27,992 - INFO - 
+Epoch 38/100
+2025-04-11 08:25:29,312 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:32,941 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:35,234 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:37,988 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:38,052 - INFO - Epoch [38/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:25:38,052 - INFO - 
+Epoch 39/100
+2025-04-11 08:25:40,503 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:43,950 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:45,055 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:49,210 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:49,278 - INFO - Epoch [39/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:25:49,279 - INFO - 
+Epoch 40/100
+2025-04-11 08:25:51,071 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:53,912 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:56,754 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:59,168 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:25:59,233 - INFO - Epoch [40/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:25:59,233 - INFO - 
+Epoch 41/100
+2025-04-11 08:26:00,013 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:04,433 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:05,529 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:10,486 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:10,555 - INFO - Epoch [41/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:26:10,555 - INFO - 
+Epoch 42/100
+2025-04-11 08:26:11,200 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:15,255 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:18,031 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:20,553 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:20,612 - INFO - Epoch [42/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:26:20,612 - INFO - 
+Epoch 43/100
+2025-04-11 08:26:21,354 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:26,226 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:28,600 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:31,175 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:31,245 - INFO - Epoch [43/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:26:31,247 - INFO - 
+Epoch 44/100
+2025-04-11 08:26:32,564 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:35,960 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:37,816 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:41,259 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:41,322 - INFO - Epoch [44/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:26:41,323 - INFO - 
+Epoch 45/100
+2025-04-11 08:26:43,325 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:46,304 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:48,016 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:51,273 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:51,337 - INFO - Epoch [45/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:26:51,338 - INFO - 
+Epoch 46/100
+2025-04-11 08:26:53,326 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:56,955 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:26:58,684 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:02,628 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:02,685 - INFO - Epoch [46/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:27:02,685 - INFO - 
+Epoch 47/100
+2025-04-11 08:27:05,213 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:08,450 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:10,845 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:13,503 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:13,569 - INFO - Epoch [47/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:27:13,570 - INFO - 
+Epoch 48/100
+2025-04-11 08:27:15,257 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:18,207 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:21,720 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:23,388 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:23,456 - INFO - Epoch [48/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:27:23,456 - INFO - 
+Epoch 49/100
+2025-04-11 08:27:24,718 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:28,364 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:29,988 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:34,125 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:34,199 - INFO - Epoch [49/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:27:34,199 - INFO - 
+Epoch 50/100
+2025-04-11 08:27:35,527 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:38,673 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:41,070 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:43,287 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:43,352 - INFO - Epoch [50/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:27:43,352 - INFO - 
+Epoch 51/100
+2025-04-11 08:27:45,175 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:47,903 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:50,338 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:52,707 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:52,768 - INFO - Epoch [51/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:27:52,768 - INFO - 
+Epoch 52/100
+2025-04-11 08:27:54,197 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:57,880 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:27:59,711 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:03,064 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:03,126 - INFO - Epoch [52/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:28:03,126 - INFO - 
+Epoch 53/100
+2025-04-11 08:28:05,042 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:07,987 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:10,257 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:12,794 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:12,851 - INFO - Epoch [53/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:28:12,851 - INFO - 
+Epoch 54/100
+2025-04-11 08:28:16,163 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:18,189 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:20,227 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:23,294 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:23,357 - INFO - Epoch [54/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:28:23,357 - INFO - 
+Epoch 55/100
+2025-04-11 08:28:25,112 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:29,615 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:31,364 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:35,305 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:35,365 - INFO - Epoch [55/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:28:35,365 - INFO - 
+Epoch 56/100
+2025-04-11 08:28:37,897 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:40,881 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:42,587 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:46,075 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:46,147 - INFO - Epoch [56/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:28:46,147 - INFO - 
+Epoch 57/100
+2025-04-11 08:28:46,933 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:51,730 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:54,962 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:56,644 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:28:56,708 - INFO - Epoch [57/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:28:56,708 - INFO - 
+Epoch 58/100
+2025-04-11 08:28:57,825 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:02,777 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:04,138 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:07,437 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:07,500 - INFO - Epoch [58/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:29:07,500 - INFO - 
+Epoch 59/100
+2025-04-11 08:29:08,815 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:12,482 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:13,721 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:18,253 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:18,318 - INFO - Epoch [59/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:29:18,318 - INFO - 
+Epoch 60/100
+2025-04-11 08:29:20,711 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:23,164 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:24,879 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:28,491 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:28,558 - INFO - Epoch [60/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:29:28,558 - INFO - 
+Epoch 61/100
+2025-04-11 08:29:31,476 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:34,383 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:35,897 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:39,595 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:39,657 - INFO - Epoch [61/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:29:39,657 - INFO - 
+Epoch 62/100
+2025-04-11 08:29:41,026 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:44,361 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:45,625 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:48,882 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:48,946 - INFO - Epoch [62/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:29:48,947 - INFO - 
+Epoch 63/100
+2025-04-11 08:29:49,685 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:53,485 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:55,644 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:58,941 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:29:59,013 - INFO - Epoch [63/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:29:59,013 - INFO - 
+Epoch 64/100
+2025-04-11 08:30:00,400 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:05,270 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:07,050 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:10,860 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:10,922 - INFO - Epoch [64/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:30:10,923 - INFO - 
+Epoch 65/100
+2025-04-11 08:30:12,171 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:16,277 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:17,372 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:21,185 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:21,246 - INFO - Epoch [65/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:30:21,246 - INFO - 
+Epoch 66/100
+2025-04-11 08:30:21,971 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:25,231 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:27,024 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:31,107 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:31,173 - INFO - Epoch [66/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:30:31,173 - INFO - 
+Epoch 67/100
+2025-04-11 08:30:32,413 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:35,558 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:37,291 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:40,182 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:40,241 - INFO - Epoch [67/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:30:40,241 - INFO - 
+Epoch 68/100
+2025-04-11 08:30:40,971 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:44,825 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:47,029 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:49,949 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:50,024 - INFO - Epoch [68/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:30:50,024 - INFO - 
+Epoch 69/100
+2025-04-11 08:30:50,680 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:54,317 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:56,542 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:59,123 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:30:59,184 - INFO - Epoch [69/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:30:59,184 - INFO - 
+Epoch 70/100
+2025-04-11 08:30:59,931 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:03,617 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:05,256 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:08,316 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:08,378 - INFO - Epoch [70/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:31:08,378 - INFO - 
+Epoch 71/100
+2025-04-11 08:31:10,836 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:13,554 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:15,692 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:18,116 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:18,176 - INFO - Epoch [71/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:31:18,176 - INFO - 
+Epoch 72/100
+2025-04-11 08:31:19,432 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:23,621 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:25,365 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:28,561 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:28,626 - INFO - Epoch [72/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:31:28,626 - INFO - 
+Epoch 73/100
+2025-04-11 08:31:29,388 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:33,022 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:34,628 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:37,787 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:37,843 - INFO - Epoch [73/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:31:37,844 - INFO - 
+Epoch 74/100
+2025-04-11 08:31:39,146 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:42,412 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:45,229 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:49,002 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:49,064 - INFO - Epoch [74/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:31:49,064 - INFO - 
+Epoch 75/100
+2025-04-11 08:31:50,701 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:53,475 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:55,675 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:58,077 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:31:58,138 - INFO - Epoch [75/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:31:58,138 - INFO - 
+Epoch 76/100
+2025-04-11 08:31:58,839 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:02,412 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:04,191 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:07,478 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:07,540 - INFO - Epoch [76/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:32:07,540 - INFO - 
+Epoch 77/100
+2025-04-11 08:32:08,831 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:11,915 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:15,108 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:17,230 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:17,297 - INFO - Epoch [77/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:32:17,298 - INFO - 
+Epoch 78/100
+2025-04-11 08:32:18,102 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:21,413 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:23,669 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:27,316 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:27,370 - INFO - Epoch [78/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:32:27,370 - INFO - 
+Epoch 79/100
+2025-04-11 08:32:28,136 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:32,603 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:35,242 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:37,841 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:37,904 - INFO - Epoch [79/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:32:37,904 - INFO - 
+Epoch 80/100
+2025-04-11 08:32:39,827 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:42,868 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:45,723 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:47,872 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:47,934 - INFO - Epoch [80/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:32:47,935 - INFO - 
+Epoch 81/100
+2025-04-11 08:32:49,856 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:53,486 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:56,907 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:59,373 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:32:59,428 - INFO - Epoch [81/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:32:59,428 - INFO - 
+Epoch 82/100
+2025-04-11 08:33:00,523 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:04,024 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:05,831 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:09,552 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:09,607 - INFO - Epoch [82/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:33:09,608 - INFO - 
+Epoch 83/100
+2025-04-11 08:33:10,850 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:14,563 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:15,609 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:19,511 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:19,586 - INFO - Epoch [83/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:33:19,586 - INFO - 
+Epoch 84/100
+2025-04-11 08:33:22,565 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:25,909 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:28,192 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:30,762 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:30,828 - INFO - Epoch [84/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:33:30,828 - INFO - 
+Epoch 85/100
+2025-04-11 08:33:32,139 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:35,798 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:37,012 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:40,672 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:40,734 - INFO - Epoch [85/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:33:40,734 - INFO - 
+Epoch 86/100
+2025-04-11 08:33:42,194 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:46,878 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:48,584 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:52,175 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:52,236 - INFO - Epoch [86/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:33:52,236 - INFO - 
+Epoch 87/100
+2025-04-11 08:33:53,448 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:56,498 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:33:58,332 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:01,597 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:01,663 - INFO - Epoch [87/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:34:01,664 - INFO - 
+Epoch 88/100
+2025-04-11 08:34:02,277 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:07,393 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:09,127 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:12,592 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:12,652 - INFO - Epoch [88/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:34:12,653 - INFO - 
+Epoch 89/100
+2025-04-11 08:34:14,636 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:16,706 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:20,156 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:22,054 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:22,117 - INFO - Epoch [89/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:34:22,118 - INFO - 
+Epoch 90/100
+2025-04-11 08:34:23,615 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:27,316 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:29,623 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:33,340 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:33,408 - INFO - Epoch [90/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:34:33,408 - INFO - 
+Epoch 91/100
+2025-04-11 08:34:35,162 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:37,829 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:39,640 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:42,820 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:42,892 - INFO - Epoch [91/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:34:42,892 - INFO - 
+Epoch 92/100
+2025-04-11 08:34:45,303 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:49,111 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:50,671 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:54,813 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:54,882 - INFO - Epoch [92/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:34:54,882 - INFO - 
+Epoch 93/100
+2025-04-11 08:34:56,184 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:34:59,651 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:01,298 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:04,888 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:04,953 - INFO - Epoch [93/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:35:04,954 - INFO - 
+Epoch 94/100
+2025-04-11 08:35:07,367 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:10,869 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:12,604 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:16,428 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:16,488 - INFO - Epoch [94/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:35:16,488 - INFO - 
+Epoch 95/100
+2025-04-11 08:35:17,773 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:20,593 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:22,279 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:25,769 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:25,836 - INFO - Epoch [95/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:35:25,836 - INFO - 
+Epoch 96/100
+2025-04-11 08:35:27,658 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:30,458 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:32,164 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:36,524 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:36,595 - INFO - Epoch [96/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:35:36,596 - INFO - 
+Epoch 97/100
+2025-04-11 08:35:37,939 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:41,674 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:42,720 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:47,290 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:47,352 - INFO - Epoch [97/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:35:47,352 - INFO - 
+Epoch 98/100
+2025-04-11 08:35:48,179 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:52,147 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:55,149 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:58,599 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:35:58,668 - INFO - Epoch [98/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:35:58,669 - INFO - 
+Epoch 99/100
+2025-04-11 08:36:00,007 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:36:02,954 - DEBUG - Loss Components: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:36:04,762 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:36:08,196 - DEBUG - 验证批次损失: 0.0000, 损失组件: {'xy': tensor([0.], device='cuda:0', requires_grad=True), 'wh': tensor([0.], device='cuda:0', requires_grad=True), 'conf': tensor([0.], device='cuda:0', requires_grad=True), 'cls': tensor([0.], device='cuda:0', requires_grad=True)}
+2025-04-11 08:36:08,259 - INFO - Epoch [99/100] Train Loss: 0.0000 Val Loss: 0.0000
+2025-04-11 08:36:08,623 - INFO - 保存最后一个模型到: ../models/checkpoints/last_model_epoch_99.pth

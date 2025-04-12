@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv11施工规范检查系统 - API文档</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        h2 {
+            margin-top: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        h3 {
+            margin-top: 25px;
+            color: #3498db;
+        }
+
+        code {
+            background-color: #f7f7f7;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Monaco, Consolas, monospace;
+            color: #e74c3c;
+        }
+
+        pre {
+            background-color: #f7f7f7;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            line-height: 1.4;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .endpoint {
+            background-color: #e8f4fc;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .method {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            color: #fff;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .post {
+            background-color: #2ecc71;
+        }
+
+        .get {
+            background-color: #3498db;
+        }
+
+        .url {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .description {
+            margin-top: 10px;
+            color: #666;
+        }
+
+        .param-name {
+            font-weight: bold;
+            color: #2980b9;
+        }
+
+        .param-type {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .response-example {
+            margin-top: 15px;
+        }
+
+        .tip {
+            background-color: #fef9e7;
+            padding: 15px;
+            border-left: 4px solid #f1c40f;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .navigation {
+            background-color: #34495e;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            margin-bottom: 20px;
+            z-index: 100;
+            border-radius: 4px;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: #2c3e50;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+        }
+
+        .back-to-top:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navigation">
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="#overview" class="nav-link">概述</a>
+                <a href="#auth" class="nav-link">认证</a>
+                <a href="#endpoints" class="nav-link">API端点</a>
+                <a href="#examples" class="nav-link">示例</a>
+                <a href="#errors" class="nav-link">错误处理</a>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">返回主页</a>
+                <a href="/model-status.html" class="nav-link">模型状态</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>YOLOv11施工规范检查系统 API文档</h1>
+
+        <section id="overview">
+            <h2>概述</h2>
+            <p>YOLOv11施工规范检查系统API提供了一组端点，用于检测施工图纸中的元素并验证其是否符合施工规范。本API主要功能包括：</p>
+            <ul>
+                <li>施工图纸中的对象检测</li>
+                <li>基于施工规范的合规性检查</li>
+                <li>检测结果及合规性报告生成</li>
+                <li>模型状态管理</li>
+            </ul>
+            <p>所有API响应都是JSON格式，包含一个顶级的<code>success</code>字段，表示请求是否成功。</p>
+        </section>
+
+        <section id="auth">
+            <h2>认证</h2>
+            <p>本API目前不需要认证即可访问（本地开发环境）。在生产环境中，建议实现适当的认证机制。</p>
+
+            <div class="tip">
+                <strong>注意：</strong> 在将系统部署到生产环境前，请确保实现适当的认证和授权机制，以保护API安全。
+            </div>
+        </section>
+
+        <section id="endpoints">
+            <h2>API端点</h2>
+
+            <h3>检测API</h3>
+
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="url">/api/detect</span>
+                <div class="description">
+                    上传施工图纸并进行对象检测和规范检查
+                </div>
+                <h4>请求参数：</h4>
+                <table>
+                    <tr>
+                        <th>参数名</th>
+                        <th>类型</th>
+                        <th>必需</th>
+                        <th>描述</th>
+                    </tr>
+                    <tr>
+                        <td>file</td>
+                        <td>File</td>
+                        <td>是</td>
+                        <td>要检测的施工图纸图片文件</td>
+                    </tr>
+                </table>
+                <h4>响应：</h4>
+                <pre><code>{
+  "success": true,
+  "data": {
+    "original_image": "base64编码的原始图片",
+    "detected_image": "base64编码的检测结果图片",
+    "class_summary": [
+      {"class": "塔吊", "count": 2},
+      {"class": "办公室", "count": 1},
+      {"class": "道路", "count": 3}
+    ],
+    "detections": [
+      {
+        "class": "塔吊",
+        "confidence": 0.95,
+        "bbox": [100, 200, 150, 300]
+      }
+    ],
+    "rules_check_results": [
+      {
+        "id": "1.5.1-1",
+        "category": "塔吊",
+        "description": "塔吊应覆盖钢筋加工场",
+        "severity": "重要",
+        "result": {
+          "status": "合规",
+          "message": "塔吊覆盖了钢筋加工厂"
+        }
+      }
+    ],
+    "rules_json_path": "/path/to/saved/results.json"
+  }
+}</code></pre>
+            </div>
+
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="url">/api/analyze</span>
+                <div class="description">
+                    使用大语言模型分析施工图纸并提供详细描述
+                </div>
+                <h4>请求参数：</h4>
+                <table>
+                    <tr>
+                        <th>参数名</th>
+                        <th>类型</th>
+                        <th>必需</th>
+                        <th>描述</th>
+                    </tr>
+                    <tr>
+                        <td>file</td>
+                        <td>File</td>
+                        <td>是</td>
+                        <td>要分析的施工图纸图片文件</td>
+                    </tr>
+                </table>
+                <h4>响应：</h4>
+                <pre><code>{
+  "success": true,
+  "analysis": "这是一张施工总平面图，图中包含以下元素：\n1. 塔吊：位于图纸中央，覆盖范围包括主要施工区域。\n2. 办公区：位于左下角，设置在塔吊作业半径外...(后续分析内容)"
+}</code></pre>
+            </div>
+
+            <h3>模型状态API</h3>
+
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="url">/api/model/status</span>
+                <div class="description">
+                    获取检测模型的当前加载状态
+                </div>
+                <h4>响应：</h4>
+                <pre><code>{
+  "success": true,
+  "loaded": true,
+  "model_path": "/path/to/model.pt",
+  "message": "模型已加载完成"
+}</code></pre>
+            </div>
+
+            <div class="endpoint">
+                <span class="method get">GET</span>
+                <span class="url">/api/check_model</span>
+                <div class="description">
+                    深度检查模型状态并尝试加载模型
+                </div>
+                <h4>响应：</h4>
+                <pre><code>{
+  "success": true,
+  "loaded": true,
+  "message": "模型加载成功，耗时 1.25 秒",
+  "model_info": {
+    "classes_count": 80,
+    "model_path": "/path/to/model.pt",
+    "file_size_mb": "16.50"
+  }
+}</code></pre>
+            </div>
+
+            <div class="endpoint">
+                <span class="method post">POST</span>
+                <span class="url">/api/reset_model</span>
+                <div class="description">
+                    重置模型状态，用于故障排除
+                </div>
+                <h4>响应：</h4>
+                <pre><code>{
+  "success": true,
+  "message": "模型状态已重置，下次API调用将重新加载模型"
+}</code></pre>
+            </div>
+        </section>
+
+        <section id="examples">
+            <h2>使用示例</h2>
+
+            <h3>使用Fetch API上传图片进行检测</h3>
+            <pre><code>// HTML部分
+&lt;input type="file" id="imageInput" accept="image/*"&gt;
+&lt;button onclick="detectImage()"&gt;开始检测&lt;/button&gt;
+
+// JavaScript部分
+async function detectImage() {
+  const fileInput = document.getElementById('imageInput');
+  const file = fileInput.files[0];
+  
+  if (!file) {
+    alert('请先选择图片');
+    return;
+  }
+  
+  const formData = new FormData();
+  formData.append('file', file);
+  
+  try {
+    const response = await fetch('/api/detect', {
+      method: 'POST',
+      body: formData
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      // 处理检测结果
+      console.log('检测成功:', result.data);
+      
+      // 显示检测后的图像
+      const detectedImage = document.createElement('img');
+      detectedImage.src = 'data:image/png;base64,' + result.data.detected_image;
+      document.body.appendChild(detectedImage);
+      
+      // 显示规范检查结果
+      displayRulesCheckResults(result.data.rules_check_results);
+    } else {
+      alert('检测失败: ' + result.error);
+    }
+  } catch (error) {
+    console.error('请求出错:', error);
+    alert('请求出错: ' + error.message);
+  }
+}
+
+function displayRulesCheckResults(results) {
+  // 实现显示规范检查结果的逻辑
+}</code></pre>
+
+            <h3>检查模型状态</h3>
+            <pre><code>async function checkModelStatus() {
+  try {
+    const response = await fetch('/api/model/status');
+    const result = await response.json();
+    
+    if (result.success && result.loaded) {
+      console.log('模型已就绪');
+      return true;
+    } else {
+      console.warn('模型未就绪:', result.error || '未知原因');
+      return false;
+    }
+  } catch (error) {
+    console.error('检查模型状态失败:', error);
+    return false;
+  }
+}</code></pre>
+        </section>
+
+        <section id="errors">
+            <h2>错误处理</h2>
+            <p>所有API响应都包含一个顶级的<code>success</code>字段，当请求失败时，此字段为<code>false</code>，并且响应中会包含一个<code>error</code>字段，说明错误原因。
+            </p>
+
+            <h3>常见错误</h3>
+            <table>
+                <tr>
+                    <th>错误消息</th>
+                    <th>描述</th>
+                    <th>解决方法</th>
+                </tr>
+                <tr>
+                    <td>找不到模型文件</td>
+                    <td>系统无法在指定路径找到模型文件</td>
+                    <td>检查模型文件是否存在，路径是否正确</td>
+                </tr>
+                <tr>
+                    <td>模型未加载</td>
+                    <td>模型没有正确加载</td>
+                    <td>使用 /api/check_model 端点尝试加载模型</td>
+                </tr>
+                <tr>
+                    <td>没有上传文件</td>
+                    <td>请求中没有包含文件</td>
+                    <td>确保在请求中正确添加了文件</td>
+                </tr>
+                <tr>
+                    <td>图片解码失败</td>
+                    <td>上传的图片无法正确解码</td>
+                    <td>检查图片格式是否正确，尝试使用不同格式的图片</td>
+                </tr>
+            </table>
+
+            <div class="tip">
+                <strong>提示：</strong> 如果遇到反复的模型加载问题，可以尝试使用 /api/reset_model 端点重置模型状态，然后再重新加载。
+            </div>
+        </section>
+    </div>
+
+    <a href="#" class="back-to-top" title="返回顶部">↑</a>
+
+    <script>
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 显示/隐藏返回顶部按钮
+        window.addEventListener('scroll', function () {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        // 页面加载时隐藏返回顶部按钮
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.back-to-top').style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>

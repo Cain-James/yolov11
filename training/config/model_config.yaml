@@ -1,0 +1,80 @@
+model:
+  name: 'yolov11'
+  backbone: 'mobilenet_v2'
+  pretrained: true
+  pretrained_path: '../models/pretrained/yolo11m.pt'
+  num_classes: 12
+  input_size: [320, 320]
+  anchors: [
+    [10, 13], [16, 30], [33, 23],
+    [30, 61], [62, 45], [59, 119],
+    [116, 90], [156, 198], [373, 326]
+  ]
+
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.0001
+  weight_decay: 0.0005
+  warmup_epochs: 5
+  save_interval: 10
+  eval_interval: 5
+  checkpoint_dir: ../models/checkpoints
+  gradient_accumulation_steps: 16
+  log_interval: 10
+
+data:
+  # 数据集路径配置
+  dataset_root: training/data  # 数据集根目录
+  train_path: training/data/imgs  # 训练图像目录
+  val_path: training/data/imgs    # 验证图像目录
+  test_path: training/data/imgs   # 测试图像目录
+  label_dir: training/data/labels # 标签目录
+  num_workers: 4
+  img_size: [320, 320]
+  augment: true
+  cache_images: false
+  
+  # 类别名称映射（从cad2024.yaml）
+  class_names:
+    0: "起重机"
+    1: "宿舍"
+    2: "挖掘机"
+    3: "大门"
+    4: "搅拌机"
+    5: "办公室"
+    6: "红线"
+    7: "道路"
+    8: "楼梯"
+    9: "钢筋加工厂"
+    10: "塔吊"
+    11: "厕所"
+
+  # 数据增强配置（从cad2024.yaml）
+  augmentation:
+    mosaic: 1.0          # mosaic增强的概率
+    mixup: 0.15         # mixup增强的概率
+    copy_paste: 0.3     # 复制粘贴增强的概率
+    random_perspective: 0.5  # 随机透视变换的概率
+    hsv_h: 0.015        # HSV色调增强范围
+    hsv_s: 0.7          # HSV饱和度增强范围
+    hsv_v: 0.4          # HSV亮度增强范围
+    translate: 0.2      # 平移增强范围
+    scale: 0.9          # 缩放增强范围
+    fliplr: 0.5         # 水平翻转概率
+    flipud: 0.1         # 垂直翻转概率
+
+  # 类别说明（便于参考）
+  class_descriptions:
+    起重机: "Crane"
+    宿舍: "Dormitory"
+    挖掘机: "Excavator"
+    大门: "Gate"
+    搅拌机: "Mixer"
+    办公室: "Office"
+    红线: "Red_Line"
+    道路: "Road"
+    楼梯: "Stairs"
+    钢筋加工厂: "Steel_processing"
+    塔吊: "Tower_Crane"
+    厕所: "toilet"

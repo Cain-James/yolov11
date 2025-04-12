@@ -1,0 +1,101 @@
+2025-04-13 03:29:04,942 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:29:04,953 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:29:13,107 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:29:13,108 - backend.app.services.detection - INFO - 模型 best.pt 已加载
+2025-04-13 03:29:15,578 - backend.app.services.detection - ERROR - 加载字体失败: unknown file format
+2025-04-13 03:29:15,580 - backend.app.services.detection - ERROR - 绘制中文文本失败: 'latin-1' codec can't encode characters in position 0-1: ordinal not in range(256)
+2025-04-13 03:29:15,716 - backend.app.services.detection - ERROR - 加载字体失败: unknown file format
+2025-04-13 03:29:15,716 - backend.app.services.detection - ERROR - 绘制中文文本失败: 'latin-1' codec can't encode characters in position 0-1: ordinal not in range(256)
+2025-04-13 03:29:15,852 - backend.app.services.detection - ERROR - 加载字体失败: unknown file format
+2025-04-13 03:29:15,853 - backend.app.services.detection - ERROR - 绘制中文文本失败: 'latin-1' codec can't encode characters in position 0-1: ordinal not in range(256)
+2025-04-13 03:29:15,990 - backend.app.services.detection - ERROR - 加载字体失败: unknown file format
+2025-04-13 03:29:15,990 - backend.app.services.detection - ERROR - 绘制中文文本失败: 'latin-1' codec can't encode characters in position 0-1: ordinal not in range(256)
+2025-04-13 03:29:17,037 - backend.app.services.detection - INFO - 检测到 4 个目标
+2025-04-13 03:29:17,037 - backend.app.services.detection - INFO - 类别统计: {'塔吊': 4}
+2025-04-13 03:29:30,429 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:29:30,429 - backend.app.services.detection - INFO - 模型 best.pt 已加载
+2025-04-13 03:29:30,522 - backend.app.services.detection - ERROR - 加载字体失败: unknown file format
+2025-04-13 03:29:30,535 - backend.app.services.detection - ERROR - 加载字体失败: unknown file format
+2025-04-13 03:29:30,535 - backend.app.services.detection - ERROR - 绘制中文文本失败: 'latin-1' codec can't encode characters in position 0-1: ordinal not in range(256)
+2025-04-13 03:29:30,540 - backend.app.services.detection - ERROR - 加载字体失败: unknown file format
+2025-04-13 03:29:30,540 - backend.app.services.detection - ERROR - 绘制中文文本失败: 'latin-1' codec can't encode characters in position 0-1: ordinal not in range(256)
+2025-04-13 03:29:30,570 - backend.app.services.detection - INFO - 检测到 3 个目标
+2025-04-13 03:29:30,570 - backend.app.services.detection - INFO - 类别统计: {'Steel_processing': 1, '塔吊': 2}
+2025-04-13 03:29:43,503 - backend.app - ERROR - 检测过程出错: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+Traceback (most recent call last):
+  File "/mnt/data/Code/yyh/yolov11/backend/app/api/detection.py", line 12, in detect
+    if 'file' not in request.files:
+  File "/home/bailey/.local/share/mamba/envs/yolov11/lib/python3.10/site-packages/werkzeug/utils.py", line 109, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "/home/bailey/.local/share/mamba/envs/yolov11/lib/python3.10/site-packages/werkzeug/wrappers/request.py", line 488, in files
+    self._load_form_data()
+  File "/home/bailey/.local/share/mamba/envs/yolov11/lib/python3.10/site-packages/flask/wrappers.py", line 112, in _load_form_data
+    super()._load_form_data()
+  File "/home/bailey/.local/share/mamba/envs/yolov11/lib/python3.10/site-packages/werkzeug/wrappers/request.py", line 274, in _load_form_data
+    data = parser.parse(
+  File "/home/bailey/.local/share/mamba/envs/yolov11/lib/python3.10/site-packages/werkzeug/formparser.py", line 259, in parse
+    raise exceptions.RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-04-13 03:29:45,631 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:29:45,632 - backend.app.services.detection - INFO - 模型 best.pt 已加载
+2025-04-13 03:29:45,722 - backend.app.services.detection - ERROR - 加载字体失败: unknown file format
+2025-04-13 03:29:45,723 - backend.app.services.detection - ERROR - 绘制中文文本失败: 'latin-1' codec can't encode characters in position 0-1: ordinal not in range(256)
+2025-04-13 03:29:45,727 - backend.app.services.detection - ERROR - 加载字体失败: unknown file format
+2025-04-13 03:29:45,727 - backend.app.services.detection - ERROR - 绘制中文文本失败: 'latin-1' codec can't encode characters in position 0-1: ordinal not in range(256)
+2025-04-13 03:29:45,758 - backend.app.services.detection - INFO - 检测到 2 个目标
+2025-04-13 03:29:45,758 - backend.app.services.detection - INFO - 类别统计: {'塔吊': 2}
+2025-04-13 03:29:51,757 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:29:51,757 - backend.app.services.detection - INFO - 模型 best.pt 已加载
+2025-04-13 03:29:53,203 - backend.app.services.detection - INFO - 检测到 0 个目标
+2025-04-13 03:29:53,204 - backend.app.services.detection - INFO - 类别统计: {}
+2025-04-13 03:32:29,413 - backend.app - INFO - 应用启动
+2025-04-13 03:32:29,417 - backend.app - INFO - 扫描可用模型...
+2025-04-13 03:32:29,417 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:32:29,417 - backend.app - INFO - 找到 6 个模型文件
+2025-04-13 03:32:29,417 - backend.app - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 03:32:29,417 - backend.app - INFO - 模型: backend_model.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 03:32:29,418 - backend.app - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 03:32:29,418 - backend.app - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 03:32:29,418 - backend.app - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 03:32:29,418 - backend.app - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 03:32:29,418 - backend.app - INFO - 正在加载默认模型...
+2025-04-13 03:32:29,418 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:32:29,418 - backend.app.services.detection - INFO - 正在加载模型: best.pt
+2025-04-13 03:32:32,291 - backend.app.services.detection - INFO - 模型 best.pt 加载成功
+2025-04-13 03:32:32,291 - backend.app - INFO - 默认模型加载成功
+2025-04-13 03:34:08,196 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:34:08,204 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:34:15,956 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:34:15,956 - backend.app.services.detection - INFO - 模型 best.pt 已加载
+2025-04-13 03:34:18,417 - backend.app.services.detection - ERROR - 绘制中文文本失败: unknown file format
+2025-04-13 03:34:18,550 - backend.app.services.detection - ERROR - 绘制中文文本失败: unknown file format
+2025-04-13 03:34:18,684 - backend.app.services.detection - ERROR - 绘制中文文本失败: unknown file format
+2025-04-13 03:34:18,819 - backend.app.services.detection - ERROR - 绘制中文文本失败: unknown file format
+2025-04-13 03:34:19,860 - backend.app.services.detection - INFO - 检测到 4 个目标
+2025-04-13 03:34:19,860 - backend.app.services.detection - INFO - 类别统计: {'塔吊': 4}
+2025-04-13 03:35:29,071 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:35:49,380 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:36:24,096 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:36:24,107 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:40:31,043 - backend.app - INFO - 应用启动
+2025-04-13 03:40:31,048 - backend.app - INFO - 扫描可用模型...
+2025-04-13 03:40:31,048 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:40:31,048 - backend.app - INFO - 找到 6 个模型文件
+2025-04-13 03:40:31,048 - backend.app - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 03:40:31,048 - backend.app - INFO - 模型: backend_model.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 03:40:31,048 - backend.app - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 03:40:31,048 - backend.app - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 03:40:31,048 - backend.app - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 03:40:31,048 - backend.app - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 03:40:31,048 - backend.app - INFO - 正在加载默认模型...
+2025-04-13 03:40:31,048 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:40:31,049 - backend.app.services.detection - INFO - 正在加载模型: best.pt
+2025-04-13 03:40:33,928 - backend.app.services.detection - INFO - 模型 best.pt 加载成功
+2025-04-13 03:40:33,928 - backend.app - INFO - 默认模型加载成功
+2025-04-13 03:46:47,767 - backend.app - INFO - 应用启动
+2025-04-13 03:46:47,772 - backend.app - INFO - 扫描可用模型...
+2025-04-13 03:46:47,772 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 03:46:47,773 - backend.app - INFO - 找到 6 个模型文件
+2025-04-13 03:46:47,773 - backend.app - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 03:46:47,773 - backend.app - INFO - 模型: backend_model.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 03:46:47,773 - backend.app - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09

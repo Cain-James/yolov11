@@ -1,0 +1,5 @@
+数据集: cad2024.yaml
+训练轮数: 100
+最佳模型: runs/segment/yolov11l_custom8/weights/best.pt
+mAP@0.5: 0.4061
+mAP@0.5:0.95: 0.3245

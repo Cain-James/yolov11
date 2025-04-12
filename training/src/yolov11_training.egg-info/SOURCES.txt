@@ -1,0 +1,12 @@
+README.md
+setup.py
+src/data/__init__.py
+src/data/dataset.py
+src/models/__init__.py
+src/models/loss.py
+src/models/yolov11.py
+src/yolov11_training.egg-info/PKG-INFO
+src/yolov11_training.egg-info/SOURCES.txt
+src/yolov11_training.egg-info/dependency_links.txt
+src/yolov11_training.egg-info/requires.txt
+src/yolov11_training.egg-info/top_level.txt

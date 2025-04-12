@@ -1,0 +1,47 @@
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+
+path: /media/amax/data/Code/yyh/yolov11/datasets2  # 数据集根目录
+train: imgs  # 训练图像（相对于'path'）
+val: imgs  # 验证图像（相对于'path'）
+test: # CAD2024/train/imgs/test  # 测试图像（可选）
+
+# Classes (80 COCO classes)
+names:
+    0: 起重机
+    1: 宿舍
+    2: 挖掘机
+    3: 大门
+    4: 搅拌机
+    5: 办公室
+    6: 红线
+    7: 道路
+    8: 楼梯
+    9: 钢筋加工厂
+    10: 塔吊
+    11: 厕所
+augmentation:
+  mosaic: 1.0
+  mixup: 0.15
+  copy_paste: 0.3
+  random_perspective: 0.5
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+  translate: 0.2
+  scale: 0.9
+  fliplr: 0.5
+  flipud: 0.1
+# ```
+# Crane - 起重机
+# Dormitory - 宿舍
+# Excavator - 挖掘机
+# Gate - 大门
+# Mixer - 搅拌机
+# Office - 办公室
+# Red_Line - 红线
+# Road - 道路
+# Stairs - 楼梯
+# Steel_processing - 钢筋加工厂
+# Tower_Crane - 塔吊
+# toilet - 厕所
+# ```

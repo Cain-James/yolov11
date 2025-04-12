@@ -1,0 +1,114 @@
+[
+  {
+    "rule_id": "1.5.1-1",
+    "category": "塔吊",
+    "description": "塔吊应覆盖钢筋加工场",
+    "severity": "重要",
+    "status": "无法检测",
+    "message": "无法检测，图中未同时识别到塔吊和钢筋加工厂"
+  },
+  {
+    "rule_id": "1.5.1-2",
+    "category": "塔吊",
+    "description": "当多台塔式起重机在同一施工现场交叉作业时，任意两台塔式起重机之间的最小距离不得小于2m",
+    "severity": "严重",
+    "status": "无法检测",
+    "message": "无法检测，图中塔吊数量少于2台"
+  },
+  {
+    "rule_id": "1.10.9-1",
+    "category": "办公室",
+    "description": "办公区选址应避开塔吊作业半径",
+    "severity": "严重",
+    "status": "无法检测",
+    "message": "无法检测，图中未同时识别到塔吊和办公室"
+  },
+  {
+    "rule_id": "1.5.8-1",
+    "category": "大门",
+    "description": "大门应直通主施工道路",
+    "severity": "重要",
+    "status": "合规",
+    "message": "大门直通主施工道路"
+  },
+  {
+    "rule_id": "1.10.6-1",
+    "category": "大门",
+    "description": "应至少设置一个大门",
+    "severity": "重要",
+    "status": "合规",
+    "message": "设置了1个大门"
+  },
+  {
+    "rule_id": "1.10.8-1",
+    "category": "道路",
+    "description": "主干道路宽度不应小于6m",
+    "severity": "一般",
+    "status": "合规",
+    "message": "主干道路宽度符合规范要求"
+  },
+  {
+    "rule_id": "1.10.8-2",
+    "category": "道路",
+    "description": "次干道路宽度不应低于3m",
+    "severity": "一般",
+    "status": "无法检测",
+    "message": "无法区分主次干道，请人工检查"
+  },
+  {
+    "rule_id": "1.10.1-1",
+    "category": "红线",
+    "description": "建筑物和设施应在红线范围内",
+    "severity": "严重",
+    "status": "无法检测",
+    "message": "无法检测，图中未识别到红线"
+  },
+  {
+    "rule_id": "1.10.9-2",
+    "category": "宿舍",
+    "description": "距离宿舍25m范围内，严禁安置易燃易爆危险品仓库和加工作业房",
+    "severity": "严重",
+    "status": "无法检测",
+    "message": "无法检测，需要人工查看是否有易燃易爆危险品仓库靠近宿舍"
+  },
+  {
+    "rule_id": "1.10.8-6",
+    "category": "道路",
+    "description": "施工现场内应设置临时消防车道",
+    "severity": "严重",
+    "status": "合规",
+    "message": "已设置临时消防车道"
+  },
+  {
+    "rule_id": "1.10.8-4",
+    "category": "道路",
+    "description": "临时消防车道的净宽度不应小于4m",
+    "severity": "严重",
+    "status": "合规",
+    "message": "临时消防车道宽度约为117.1m，符合不小于4m的要求"
+  },
+  {
+    "rule_id": "1.5.7-1",
+    "category": "施工道路",
+    "description": "施工道路应连接上下人通道与大门",
+    "severity": "重要",
+    "status": "无法检测",
+    "message": "无法检测，图中未识别到上下人通道(楼梯)"
+  },
+  {
+    "rule_id": "1.10.3-1",
+    "category": "围挡",
+    "description": "施工场界围挡高度不应低于2.0m",
+    "severity": "一般",
+    "status": "无法检测",
+    "message": "无法自动检测围挡高度，需要人工检查"
+  },
+  {
+    "rule_id": "1.6.4-1",
+    "category": "钢筋加工场",
+    "description": "主体施工阶段应设置钢筋加工场",
+    "severity": "重要",
+    "status": "不合规",
+    "message": "未设置钢筋加工场"
+  }
+]
