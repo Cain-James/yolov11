@@ -1,2 +1,0 @@
-2025-04-13 04:48:35,128 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
-2025-04-13 04:48:35,128 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
