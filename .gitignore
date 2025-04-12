@@ -1,5 +1,5 @@
 # 忽略数据集目录
-datasets/CAD2024/train/
+datasets/CAD2024/
 training/data/
 
 # Python
@@ -13,6 +13,9 @@ __pycache__/
 # 模型文件
 *.pt
 *.pth
+models/checkpoints/
+models/pretrained/
+backend/models/
 
 # 系统文件
 .DS_Store
@@ -26,3 +29,6 @@ venv/
 .vscode/
 *.swp
 *.swo
+
+# 大文件
+*.png
