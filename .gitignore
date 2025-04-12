@@ -1,0 +1,28 @@
+# 忽略数据集目录
+datasets/CAD2024/train/
+training/data/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 日志文件
+*.log
+
+# 模型文件
+*.pt
+*.pth
+
+# 系统文件
+.DS_Store
+.env
+.venv
+env/
+venv/
+
+# IDE配置
+.idea/
+.vscode/
+*.swp
+*.swo
