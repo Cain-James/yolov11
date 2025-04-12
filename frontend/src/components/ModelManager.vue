@@ -152,8 +152,14 @@ const refreshModelStatus = async () => {
 }
 
 // 组件挂载时获取模型状态
-onMounted(() => {
-  fetchModelStatus()
+onMounted(async () => {
+  await fetchModelStatus()
+  modelLoadStep.value = isModelLoaded.value ? 3 : 1
+  // 设置定时刷新
+  setInterval(async () => {
+    await fetchModelStatus()
+    modelLoadStep.value = isModelLoaded.value ? 3 : 1
+  }, 30000) // 每30秒自动刷新一次
 })
 </script>
 
@@ -203,4 +209,4 @@ h3 {
 :deep(.el-steps) {
   margin-top: 16px;
 }
-</style> 
+</style>

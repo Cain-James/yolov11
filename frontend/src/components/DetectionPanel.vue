@@ -1129,6 +1129,8 @@ const handleDetect = async () => {
   }
 }
 
+const loading = ref(false)
+
 // 修改handleModelChange函数
 const handleModelChange = async (modelName: string) => {
   try {
@@ -1332,4 +1334,4 @@ const fetchModelStatus = async () => {
   position: relative;
   min-height: 100vh;
 }
-</style> 
+</style>

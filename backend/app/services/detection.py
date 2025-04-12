@@ -26,6 +26,9 @@ class DetectionService:
         if not hasattr(self, 'initialized'):
             self.initialized = True
             self.logger = logging.getLogger(__name__)
+            self.model = None
+            self.current_model_path = None
+            self.model_loaded = False
             
             # 类别映射
             self.CATEGORY_MAPPING = {
@@ -84,9 +87,11 @@ class DetectionService:
                     del self.model
                     self.model = None
                     self.current_model_path = None
+                    self.model_loaded = False
                     import gc
                     gc.collect()
-                    torch.cuda.empty_cache()  # 清理GPU缓存
+                    if torch.cuda.is_available():
+                        torch.cuda.empty_cache()  # 清理GPU缓存
                 except Exception as e:
                     self.logger.warning(f"清理旧模型时出错: {str(e)}")
             
@@ -103,7 +108,9 @@ class DetectionService:
                 if not hasattr(self.model, 'names'):
                     raise Exception("模型缺少必要的属性")
                 
+                # 设置模型状态
                 self.current_model_path = model_path
+                self.model_loaded = True
                 self.logger.info(f"已切换到模型: {model_path}")
                 return True
                 
@@ -111,6 +118,7 @@ class DetectionService:
                 self.logger.error(f"加载新模型失败: {str(e)}")
                 self.model = None
                 self.current_model_path = None
+                self.model_loaded = False
                 return False
             
         except Exception as e:
@@ -120,9 +128,9 @@ class DetectionService:
     def scan_available_models(self):
         """扫描可用的模型文件"""
         try:
-            # 使用相对路径指向backend/models目录
-            current_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-            models_dir = os.path.join(current_dir, 'models')
+            # 使用Config中配置的模型目录
+            from backend.config.config import Config
+            models_dir = Config.MODEL_DIR
             
             self.logger.info(f"正在扫描模型目录: {models_dir}")
             
@@ -168,6 +176,7 @@ class DetectionService:
             # 检查模型是否存在
             if model_name not in self.available_models:
                 self.logger.error(f"模型 {model_name} 不存在")
+                self.model_loaded = False
                 return False
             
             model_path = self.available_models[model_name]['path']
@@ -175,14 +184,17 @@ class DetectionService:
             # 如果已经加载了相同的模型，直接返回
             if self.model is not None and self.current_model_path == model_path:
                 self.logger.info(f"模型 {model_name} 已加载")
+                self.model_loaded = True
                 return True
             
             self.logger.info(f"正在加载模型: {model_name}")
+            self.model_loaded = False
             
             # 使用YOLO类直接加载模型
             from ultralytics import YOLO
             self.model = YOLO(model_path)
             self.current_model_path = model_path
+            self.model_loaded = True
             self.logger.info(f"模型 {model_name} 加载成功")
             return True
             
@@ -228,8 +240,12 @@ class DetectionService:
                 model_name = os.path.basename(model_path)
                 if not self.load_model(model_name):
                     raise Exception(f"无法加载指定模型: {model_name}")
-            elif not self.load_model():
+            elif not self.model_loaded:
                 raise Exception("模型未准备就绪")
+            
+            # 检查图像文件是否存在
+            if not os.path.exists(image_path):
+                raise Exception(f"图像文件不存在: {image_path}")
             
             # 读取图像
             img = cv2.imread(image_path)
@@ -237,7 +253,10 @@ class DetectionService:
                 raise Exception("无法读取图像")
             
             # 执行检测
-            results = self.model.predict(img)[0]
+            try:
+                results = self.model.predict(img, conf=0.25)[0]  # 设置置信度阈值
+            except Exception as e:
+                raise Exception(f"模型预测失败: {str(e)}")
             
             # 处理检测结果
             detections = []
@@ -246,38 +265,46 @@ class DetectionService:
             # 从结果中获取检测框
             boxes = results.boxes
             for box in boxes:
-                x1, y1, x2, y2 = box.xyxy[0].tolist()
-                conf = box.conf[0].item()
-                cls = box.cls[0].item()
-                class_name = results.names[int(cls)]
-                
-                # 获取中文类别名
-                category = self.CATEGORY_MAPPING.get(class_name, class_name)
-                
-                # 更新类别计数
-                class_counts[category] = class_counts.get(category, 0) + 1
-                
-                # 获取颜色
-                color = self.CATEGORY_COLORS.get(category, (0, 0, 255))
-                
-                # 在图像上绘制边界框
-                cv2.rectangle(img, (int(x1), int(y1)), (int(x2), int(y2)), color, 2)
-                
-                # 绘制中文标签
-                label = f"{category} {conf:.2f}"
-                img = self.draw_chinese_text(img, label, (int(x1), int(y1)), color)
-                
-                detection = {
-                    'bbox': [int(x1), int(y1), int(x2), int(y2)],
-                    'confidence': float(conf),
-                    'category': category,
-                    'color': color
-                }
-                detections.append(detection)
+                try:
+                    x1, y1, x2, y2 = box.xyxy[0].tolist()
+                    conf = box.conf[0].item()
+                    cls = box.cls[0].item()
+                    class_name = results.names[int(cls)]
+                    
+                    # 获取中文类别名
+                    category = self.CATEGORY_MAPPING.get(class_name, class_name)
+                    
+                    # 更新类别计数
+                    class_counts[category] = class_counts.get(category, 0) + 1
+                    
+                    # 获取颜色
+                    color = self.CATEGORY_COLORS.get(category, (0, 0, 255))
+                    
+                    # 在图像上绘制边界框
+                    cv2.rectangle(img, (int(x1), int(y1)), (int(x2), int(y2)), color, 2)
+                    
+                    # 绘制中文标签
+                    label = f"{category} {conf:.2f}"
+                    img = self.draw_chinese_text(img, label, (int(x1), int(y1)), color)
+                    
+                    detection = {
+                        'bbox': [int(x1), int(y1), int(x2), int(y2)],
+                        'confidence': float(conf),
+                        'category': category,
+                        'color': color
+                    }
+                    detections.append(detection)
+                except Exception as e:
+                    self.logger.warning(f"处理单个检测框时出错: {str(e)}")
+                    continue
             
             # 将检测后的图像编码为base64
-            _, buffer = cv2.imencode('.png', img)
-            detected_image = base64.b64encode(buffer).decode('utf-8')
+            try:
+                _, buffer = cv2.imencode('.png', img)
+                detected_image = base64.b64encode(buffer).decode('utf-8')
+            except Exception as e:
+                self.logger.error(f"图像编码失败: {str(e)}")
+                detected_image = None
             
             self.logger.info(f"检测到 {len(detections)} 个目标")
             self.logger.info(f"类别统计: {class_counts}")
@@ -330,4 +357,4 @@ class DetectionService:
 detection_service = DetectionService()
 
 # 导出服务实例
-__all__ = ['detection_service'] 
+__all__ = ['detection_service']

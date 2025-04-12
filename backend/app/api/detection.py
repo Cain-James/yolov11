@@ -418,4 +418,4 @@ def check_model():
             'success': False,
             'loaded': False,
             'error': f'系统错误: {str(e)}'
-        }) 
+        })

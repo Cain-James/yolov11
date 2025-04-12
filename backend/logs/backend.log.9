@@ -1,195 +1,83 @@
-2025-04-13 00:18:55,760 - backend.app - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
-2025-04-13 00:18:55,760 - backend.app - INFO - 正在加载默认模型...
-2025-04-13 00:18:55,760 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 00:18:55,760 - backend.app.services.detection - INFO - 正在加载模型: best.pt
-2025-04-13 00:18:56,578 - backend.app.services.detection - INFO - 模型 best.pt 加载成功
-2025-04-13 00:18:56,578 - backend.app - INFO - 默认模型加载成功
-2025-04-13 00:37:38,776 - __main__ - INFO - 开始启动后端服务...
-2025-04-13 00:37:38,776 - __main__ - INFO - 当前工作目录: /mnt/data/Code/yyh/yolov11/backend
-2025-04-13 00:37:38,885 - __main__ - ERROR - 导入应用实例失败: No module named 'backend.config.config'; 'backend.config' is not a package
-2025-04-13 00:39:10,396 - __main__ - INFO - 开始启动后端服务...
-2025-04-13 00:39:10,396 - __main__ - INFO - 当前工作目录: /mnt/data/Code/yyh/yolov11/backend
-2025-04-13 00:39:10,496 - __main__ - ERROR - 导入应用实例失败: No module named 'backend.config.config'; 'backend.config' is not a package
-2025-04-13 00:40:10,560 - __main__ - INFO - 开始启动后端服务...
-2025-04-13 00:40:10,560 - __main__ - INFO - 当前工作目录: /mnt/data/Code/yyh/yolov11/backend
-2025-04-13 00:40:10,662 - __main__ - ERROR - 导入应用实例失败: No module named 'backend.config.config'; 'backend.config' is not a package
-2025-04-13 00:42:33,925 - __main__ - ERROR - 应用启动失败: No module named 'backend.config.config'; 'backend.config' is not a package
-Traceback (most recent call last):
-  File "/mnt/data/Code/yyh/yolov11/backend/start_backend.py", line 27, in main
-    from app.main import app
-  File "/mnt/data/Code/yyh/yolov11/backend/app/__init__.py", line 3, in <module>
-    from backend.config.config import Config
-ModuleNotFoundError: No module named 'backend.config.config'; 'backend.config' is not a package
-2025-04-13 00:44:04,395 - __main__ - ERROR - 应用启动失败: No module named 'backend.config.config'; 'backend.config' is not a package
-Traceback (most recent call last):
-  File "/mnt/data/Code/yyh/yolov11/backend/start_backend.py", line 27, in main
-    from app.main import app
-  File "/mnt/data/Code/yyh/yolov11/backend/app/__init__.py", line 3, in <module>
-    from backend.config.config import Config
-ModuleNotFoundError: No module named 'backend.config.config'; 'backend.config' is not a package
-2025-04-13 00:46:33,915 - __main__ - INFO - 正在启动Flask应用...
-2025-04-13 00:46:33,922 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.201.140.243:5000
-2025-04-13 00:46:33,922 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
-2025-04-13 00:46:33,928 - werkzeug - INFO -  * Restarting with watchdog (inotify)
-2025-04-13 00:46:34,071 - __main__ - INFO - 正在启动Flask应用...
-2025-04-13 00:46:34,076 - werkzeug - WARNING -  * Debugger is active!
-2025-04-13 00:46:34,076 - werkzeug - INFO -  * Debugger PIN: 679-157-566
-2025-04-13 00:46:34,633 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 00:46:34] "GET /health HTTP/1.1" 200 -
-2025-04-13 00:47:04,557 - __main__ - INFO - 正在启动Flask应用...
-2025-04-13 00:47:04,568 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.201.140.243:5000
-2025-04-13 00:47:04,568 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
-2025-04-13 00:47:04,568 - werkzeug - INFO -  * Restarting with stat
-2025-04-13 00:47:04,715 - __main__ - INFO - 正在启动Flask应用...
-2025-04-13 00:47:04,721 - werkzeug - WARNING -  * Debugger is active!
-2025-04-13 00:47:04,721 - werkzeug - INFO -  * Debugger PIN: 116-952-436
-2025-04-13 00:47:52,163 - __main__ - INFO - 正在启动Flask应用...
-2025-04-13 00:47:52,170 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.201.140.243:5000
-2025-04-13 00:47:52,170 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
-2025-04-13 00:47:52,176 - werkzeug - INFO -  * Restarting with watchdog (inotify)
-2025-04-13 00:47:52,313 - __main__ - INFO - 正在启动Flask应用...
-2025-04-13 00:47:52,318 - werkzeug - WARNING -  * Debugger is active!
-2025-04-13 00:47:52,318 - werkzeug - INFO -  * Debugger PIN: 679-157-566
-2025-04-13 00:47:52,821 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 00:47:52] "GET /health HTTP/1.1" 200 -
-2025-04-13 00:48:11,269 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 00:48:11] "GET /health HTTP/1.1" 200 -
-2025-04-13 00:48:11,521 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 00:48:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-04-13 00:48:19,844 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 00:48:19] "[33mGET /api/models HTTP/1.1[0m" 404 -
-2025-04-13 00:48:27,716 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 00:48:27] "[33mGET /api/model_status HTTP/1.1[0m" 404 -
-2025-04-13 00:51:17,399 - __main__ - INFO - 正在启动Flask应用...
-2025-04-13 00:51:17,407 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.201.140.243:5000
-2025-04-13 00:51:17,407 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
-2025-04-13 00:51:17,407 - werkzeug - INFO -  * Restarting with stat
-2025-04-13 00:51:17,554 - __main__ - INFO - 正在启动Flask应用...
-2025-04-13 00:51:17,562 - werkzeug - WARNING -  * Debugger is active!
-2025-04-13 00:51:17,562 - werkzeug - INFO -  * Debugger PIN: 131-394-254
-2025-04-13 00:52:42,233 - werkzeug - INFO -  * Detected change in '/mnt/data/Code/yyh/yolov11/backend/app/main.py', reloading
-2025-04-13 00:52:42,269 - werkzeug - INFO -  * Restarting with stat
-2025-04-13 00:52:42,421 - __main__ - INFO - 正在启动Flask应用...
-2025-04-13 00:52:42,427 - werkzeug - WARNING -  * Debugger is active!
-2025-04-13 00:52:42,427 - werkzeug - INFO -  * Debugger PIN: 131-394-254
-2025-04-13 00:53:04,595 - werkzeug - INFO -  * Detected change in '/mnt/data/Code/yyh/yolov11/backend/start_backend.py', reloading
-2025-04-13 00:53:04,647 - werkzeug - INFO -  * Restarting with stat
-2025-04-13 00:53:06,932 - __main__ - INFO - Python 版本: 3.10.16 (main, Dec 11 2024, 16:24:50) [GCC 11.2.0]
-2025-04-13 00:53:06,933 - __main__ - INFO - PyTorch 版本: 2.5.1
-2025-04-13 00:53:06,942 - __main__ - INFO - CUDA 是否可用: True
-2025-04-13 00:53:06,942 - __main__ - INFO - ultralytics 版本: 8.3.89
-2025-04-13 00:53:06,942 - __main__ - INFO - OpenCV 版本: 4.11.0
-2025-04-13 00:53:06,942 - __main__ - INFO - 正在导入Flask应用...
-2025-04-13 00:53:07,008 - __main__ - INFO - 正在启动Flask应用...
-2025-04-13 00:53:07,014 - werkzeug - WARNING -  * Debugger is active!
-2025-04-13 00:53:07,014 - werkzeug - INFO -  * Debugger PIN: 131-394-254
-2025-04-13 00:53:34,457 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 00:53:34] "GET /health HTTP/1.1" 200 -
-2025-04-13 00:53:41,337 - werkzeug - INFO -  * Detected change in '/mnt/data/Code/yyh/yolov11/backend/start_backend.py', reloading
-2025-04-13 00:53:41,945 - werkzeug - INFO -  * Restarting with stat
-2025-04-13 00:53:42,883 - __main__ - ERROR - 应用启动失败: module 'torch' has no attribute 'load'
-Traceback (most recent call last):
-  File "/mnt/data/Code/yyh/yolov11/backend/start_backend.py", line 43, in main
-    if not check_environment():
-           ^^^^^^^^^^^^^^^^^^^
-  File "/mnt/data/Code/yyh/yolov11/backend/start_backend.py", line 28, in check_environment
-    import ultralytics
-  File "/home/bailey/anaconda3/lib/python3.11/site-packages/ultralytics/__init__.py", line 11, in <module>
-    from ultralytics.models import NAS, RTDETR, SAM, YOLO, YOLOE, FastSAM, YOLOWorld
-  File "/home/bailey/anaconda3/lib/python3.11/site-packages/ultralytics/models/__init__.py", line 3, in <module>
-    from .fastsam import FastSAM
-  File "/home/bailey/anaconda3/lib/python3.11/site-packages/ultralytics/models/fastsam/__init__.py", line 3, in <module>
-    from .model import FastSAM
-  File "/home/bailey/anaconda3/lib/python3.11/site-packages/ultralytics/models/fastsam/model.py", line 5, in <module>
-    from ultralytics.engine.model import Model
-  File "/home/bailey/anaconda3/lib/python3.11/site-packages/ultralytics/engine/model.py", line 11, in <module>
-    from ultralytics.cfg import TASK2DATA, get_cfg, get_save_dir
-  File "/home/bailey/anaconda3/lib/python3.11/site-packages/ultralytics/cfg/__init__.py", line 12, in <module>
-    from ultralytics.utils import (
-  File "/home/bailey/anaconda3/lib/python3.11/site-packages/ultralytics/utils/__init__.py", line 31, in <module>
-    from ultralytics.utils.patches import imread, imshow, imwrite, torch_load, torch_save  # for patches
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/bailey/anaconda3/lib/python3.11/site-packages/ultralytics/utils/patches.py", line 81, in <module>
-    _torch_load = torch.load  # copy to avoid recursion errors
-                  ^^^^^^^^^^
-AttributeError: module 'torch' has no attribute 'load'
-2025-04-13 00:53:44,224 - __main__ - INFO - Python 版本: 3.10.16 (main, Dec 11 2024, 16:24:50) [GCC 11.2.0]
-2025-04-13 00:53:44,224 - __main__ - INFO - PyTorch 版本: 2.5.1
-2025-04-13 00:53:44,234 - __main__ - INFO - CUDA 是否可用: True
-2025-04-13 00:53:44,234 - __main__ - INFO - ultralytics 版本: 8.3.89
-2025-04-13 00:53:44,234 - __main__ - INFO - OpenCV 版本: 4.11.0
-2025-04-13 00:53:44,234 - __main__ - INFO - 正在导入Flask应用...
-2025-04-13 00:53:44,299 - __main__ - INFO - 正在启动Flask应用...
-2025-04-13 00:53:44,305 - werkzeug - WARNING -  * Debugger is active!
-2025-04-13 00:53:44,305 - werkzeug - INFO -  * Debugger PIN: 131-394-254
-2025-04-13 01:11:57,905 - __main__ - INFO - 开始启动后端服务...
-2025-04-13 01:11:57,905 - __main__ - INFO - 当前工作目录: /mnt/data/Code/yyh/yolov11/backend
-2025-04-13 01:12:00,295 - __main__ - INFO - 成功导入应用实例
-2025-04-13 01:12:00,295 - __main__ - INFO - 成功初始化应用配置
-2025-04-13 01:12:00,295 - __main__ - INFO - 应用将在端口 5000 上启动
-2025-04-13 01:12:00,298 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.201.140.243:5000
-2025-04-13 01:12:00,298 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
-2025-04-13 01:14:15,525 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 01:14:15] "GET /health HTTP/1.1" 200 -
-2025-04-13 01:17:54,598 - __main__ - INFO - 开始启动后端服务...
-2025-04-13 01:17:54,598 - __main__ - INFO - 当前工作目录: /mnt/data/Code/yyh/yolov11/backend
-2025-04-13 01:17:56,891 - __main__ - INFO - 成功导入应用实例
-2025-04-13 01:17:56,892 - __main__ - INFO - 成功初始化应用配置
-2025-04-13 01:17:56,892 - __main__ - INFO - 应用将在端口 5000 上启动
-2025-04-13 01:17:56,895 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.201.140.243:5000
-2025-04-13 01:17:56,895 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
-2025-04-13 01:20:11,878 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 01:20:11] "GET /health HTTP/1.1" 200 -
-2025-04-13 01:47:58,876 - __main__ - INFO - 开始启动后端服务...
-2025-04-13 01:47:58,876 - __main__ - INFO - 当前工作目录: /mnt/data/Code/yyh/yolov11/backend
-2025-04-13 01:48:03,303 - __main__ - INFO - 成功导入应用实例
-2025-04-13 01:48:03,304 - __main__ - INFO - 成功初始化应用配置
-2025-04-13 01:48:03,304 - __main__ - INFO - 应用将在端口 5000 上启动
-2025-04-13 01:48:03,307 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.201.140.243:5000
-2025-04-13 01:48:03,307 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
-2025-04-13 01:50:15,308 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 01:50:15] "GET /health HTTP/1.1" 200 -
-2025-04-13 01:55:32,034 - __main__ - INFO - 开始启动后端服务...
-2025-04-13 01:55:32,034 - __main__ - INFO - 当前工作目录: /mnt/data/Code/yyh/yolov11/backend
-2025-04-13 01:55:36,375 - __main__ - INFO - 成功导入应用实例
-2025-04-13 01:55:36,375 - __main__ - INFO - 成功初始化应用配置
-2025-04-13 01:55:36,375 - __main__ - INFO - 应用将在端口 5000 上启动
-2025-04-13 01:55:36,380 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.201.140.243:5000
-2025-04-13 01:55:36,380 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
-2025-04-13 01:57:49,965 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 01:57:49] "GET /health HTTP/1.1" 200 -
-2025-04-13 02:13:08,790 - __main__ - INFO - 开始启动后端服务...
-2025-04-13 02:13:08,791 - __main__ - INFO - 当前工作目录: /mnt/data/Code/yyh/yolov11/backend
-2025-04-13 02:13:13,264 - __main__ - INFO - 成功导入应用实例
-2025-04-13 02:13:13,264 - __main__ - INFO - 成功初始化应用配置
-2025-04-13 02:13:13,264 - __main__ - INFO - 应用将在端口 5000 上启动
-2025-04-13 02:13:13,267 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.201.140.243:5000
-2025-04-13 02:13:13,267 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
-2025-04-13 02:15:26,735 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 02:15:26] "GET /health HTTP/1.1" 200 -
-2025-04-13 02:17:59,428 - __main__ - INFO - 开始启动后端服务...
-2025-04-13 02:17:59,429 - __main__ - INFO - 当前工作目录: /mnt/data/Code/yyh/yolov11/backend
-2025-04-13 02:18:03,775 - __main__ - INFO - 成功导入应用实例
-2025-04-13 02:18:03,775 - __main__ - INFO - 成功初始化应用配置
-2025-04-13 02:18:03,775 - __main__ - INFO - 应用将在端口 5000 上启动
-2025-04-13 02:18:03,779 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://10.201.140.243:5000
-2025-04-13 02:18:03,779 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
-2025-04-13 02:20:17,550 - werkzeug - INFO - 127.0.0.1 - - [13/Apr/2025 02:20:17] "GET /health HTTP/1.1" 200 -
+2025-04-13 04:36:59,884 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
+2025-04-13 04:36:59,885 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 04:36:59,885 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 04:36:59,885 - backend.app.services.detection - INFO - 模型: backend_model.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 04:36:59,885 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 04:36:59,885 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 04:36:59,885 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 04:36:59,885 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 04:36:59,885 - backend.app - INFO - 找到 6 个模型文件
+2025-04-13 04:36:59,886 - backend.app - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 04:36:59,886 - backend.app - INFO - 模型: backend_model.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 04:36:59,886 - backend.app - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 04:36:59,886 - backend.app - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 04:36:59,886 - backend.app - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 04:36:59,886 - backend.app - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 04:36:59,886 - backend.app - INFO - 正在加载默认模型...
+2025-04-13 04:36:59,886 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
+2025-04-13 04:36:59,886 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 04:36:59,886 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 04:36:59,886 - backend.app.services.detection - INFO - 模型: backend_model.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 04:36:59,886 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 04:36:59,886 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 04:36:59,886 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 04:36:59,886 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 04:36:59,887 - backend.app.services.detection - INFO - 正在加载模型: best.pt
+2025-04-13 04:37:02,830 - backend.app.services.detection - INFO - 模型 best.pt 加载成功
+2025-04-13 04:37:02,830 - backend.app - INFO - 默认模型加载成功
+2025-04-13 04:39:02,858 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
+2025-04-13 04:39:02,859 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 04:39:02,859 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 04:39:02,859 - backend.app.services.detection - INFO - 模型: backend_model.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 04:39:02,859 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 04:39:02,859 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 04:39:02,860 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 04:39:02,860 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 04:39:02,871 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
+2025-04-13 04:39:02,872 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 04:39:02,872 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 04:39:02,872 - backend.app.services.detection - INFO - 模型: backend_model.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 04:39:02,872 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 04:39:02,872 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 04:39:02,872 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 04:39:02,872 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 04:39:33,790 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
+2025-04-13 04:39:33,790 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 04:39:33,790 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 04:39:33,791 - backend.app.services.detection - INFO - 模型: backend_model.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 04:39:33,791 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 04:39:33,791 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 04:39:33,791 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 04:39:33,791 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 04:43:31,591 - backend.app - INFO - 应用启动
+2025-04-13 04:43:31,595 - backend.app - INFO - 扫描可用模型...
+2025-04-13 04:43:31,595 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
+2025-04-13 04:43:31,596 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 04:43:31,596 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 04:43:31,596 - backend.app.services.detection - INFO - 模型: backend_model.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 04:43:31,596 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 04:43:31,596 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 04:43:31,596 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 04:43:31,596 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 04:43:31,596 - backend.app - INFO - 找到 6 个模型文件
+2025-04-13 04:43:31,596 - backend.app - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 04:43:31,596 - backend.app - INFO - 模型: backend_model.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 04:43:31,596 - backend.app - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 04:43:31,596 - backend.app - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 04:43:31,596 - backend.app - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 04:43:31,597 - backend.app - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 04:43:31,597 - backend.app - INFO - 正在加载默认模型...
+2025-04-13 04:43:31,597 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
+2025-04-13 04:43:31,597 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 04:43:31,597 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 04:43:31,597 - backend.app.services.detection - INFO - 模型: backend_model.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 04:43:31,597 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 04:43:31,597 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 04:43:31,597 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 04:43:31,597 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 04:43:31,597 - backend.app.services.detection - INFO - 正在加载模型: best.pt
+2025-04-13 04:43:34,497 - backend.app.services.detection - INFO - 模型 best.pt 加载成功
+2025-04-13 04:43:34,497 - backend.app - INFO - 默认模型加载成功
+2025-04-13 04:43:45,787 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
+2025-04-13 04:43:45,788 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 04:43:45,788 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16

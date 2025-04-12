@@ -4,6 +4,7 @@ import logging
 
 # 基础路径配置
 BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+print("当前目录：" + BASE_DIR)
 UPLOAD_FOLDER = os.path.join(BASE_DIR, 'uploads')
 
 # 确保上传文件夹存在
