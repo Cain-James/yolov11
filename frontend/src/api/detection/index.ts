@@ -15,7 +15,7 @@ export function detectImage(data: FormData) {
 // 图片分析
 export function analyzeImage(data: FormData) {
     return request({
-        url: '/api/analyze',
+        url: '/api/detection/analyze',
         method: 'post',
         data,
         headers: {

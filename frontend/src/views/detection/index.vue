@@ -73,7 +73,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { ElMessage } from 'element-plus'
-import { detectImage, analyzeImage } from '@/api/detection'
+import { detectImage, analyzeImage } from '@/api/detetion'
 
 // 状态
 const fileList = ref<any[]>([])

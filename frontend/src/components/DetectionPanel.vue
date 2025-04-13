@@ -643,9 +643,7 @@ const categoryColors: Record<string, string> = {
 }
 
 // 在ref声明部分添加
-const modelStatusCheckInterval = ref<number | null>(null)
-const lastModelStatusCheck = ref<number>(0)
-const modelStatusCache = ref<boolean | null>(null)
+// 移除定时查询相关变量
 const MODEL_STATUS_CACHE_DURATION = 30000 // 30秒缓存
 
 // 在ref声明部分添加
@@ -1060,14 +1058,11 @@ const checkModelStatus = async () => {
 }
 
 // 定期检查模型状态
-const startModelStatusCheck = () => {
-  checkModelStatus()
-  setInterval(checkModelStatus, 30000) // 每30秒检查一次
-}
+// 移除定时查询启动函数
 
 // 组件挂载时启动模型状态检查
 onMounted(() => {
-  startModelStatusCheck()
+  checkModelStatus()
 })
 
 // 添加模型状态相关变量
@@ -1098,17 +1093,12 @@ const handleDetect = async () => {
     return
   }
 
-  if (!isModelReady.value) {
-    showModelNotReadyWarning()
-    return
-  }
-
   try {
     loading.value = true
     const formData = new FormData()
     formData.append('file', currentFile.value.raw)
 
-    const response = await axios.post('/api/detect', formData, {
+    const response = await axios.post('/api/detection/detect', formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }

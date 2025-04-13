@@ -1,102 +1,28 @@
-2025-04-13 04:14:41,741 - backend.app - INFO - 扫描可用模型...
-2025-04-13 04:14:41,742 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:14:41,742 - backend.app - INFO - 找到 6 个模型文件
-2025-04-13 04:14:41,742 - backend.app - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
-2025-04-13 04:14:41,742 - backend.app - INFO - 模型: backend_model.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
-2025-04-13 04:14:41,742 - backend.app - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
-2025-04-13 04:14:41,742 - backend.app - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
-2025-04-13 04:14:41,742 - backend.app - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
-2025-04-13 04:14:41,742 - backend.app - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
-2025-04-13 04:14:41,742 - backend.app - INFO - 正在加载默认模型...
-2025-04-13 04:14:41,743 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:14:41,743 - backend.app.services.detection - INFO - 正在加载模型: best.pt
-2025-04-13 04:14:44,669 - backend.app.services.detection - INFO - 模型 best.pt 加载成功
-2025-04-13 04:14:44,669 - backend.app - INFO - 默认模型加载成功
-2025-04-13 04:15:43,197 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:15:43,198 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:15:43,200 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:16:43,133 - backend.app.services.detection - INFO - 找到 1 个模型文件
-2025-04-13 04:16:43,134 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:16:43,139 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:16:43,139 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:17:43,143 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:17:43,152 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:17:43,153 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:17:43,153 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:18:13,342 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:18:13,350 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:18:13,395 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:18:13,406 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:18:43,688 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:18:43,955 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:19:13,785 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:19:14,116 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:19:44,108 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:19:44,379 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:20:13,787 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:20:14,130 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:20:37,488 - backend.app - INFO - 应用启动
-2025-04-13 04:20:37,492 - backend.app - INFO - 扫描可用模型...
-2025-04-13 04:20:37,492 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:20:37,492 - backend.app - INFO - 找到 6 个模型文件
-2025-04-13 04:20:37,492 - backend.app - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
-2025-04-13 04:20:37,492 - backend.app - INFO - 模型: backend_model.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
-2025-04-13 04:20:37,492 - backend.app - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
-2025-04-13 04:20:37,492 - backend.app - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
-2025-04-13 04:20:37,492 - backend.app - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
-2025-04-13 04:20:37,493 - backend.app - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
-2025-04-13 04:20:37,493 - backend.app - INFO - 正在加载默认模型...
-2025-04-13 04:20:37,493 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:20:37,493 - backend.app.services.detection - INFO - 正在加载模型: best.pt
-2025-04-13 04:20:40,393 - backend.app.services.detection - INFO - 模型 best.pt 加载成功
-2025-04-13 04:20:40,393 - backend.app - INFO - 默认模型加载成功
-2025-04-13 04:21:02,626 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:21:02,636 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:21:02,836 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:21:02,844 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:21:15,671 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:21:33,119 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:21:33,380 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:22:02,795 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:22:03,139 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:22:14,127 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:26:31,265 - backend.app - INFO - 应用启动
-2025-04-13 04:26:31,270 - backend.app - INFO - 扫描可用模型...
-2025-04-13 04:26:31,270 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:26:31,270 - backend.app - INFO - 找到 6 个模型文件
-2025-04-13 04:26:31,270 - backend.app - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
-2025-04-13 04:26:31,270 - backend.app - INFO - 模型: backend_model.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
-2025-04-13 04:26:31,271 - backend.app - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
-2025-04-13 04:26:31,271 - backend.app - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
-2025-04-13 04:26:31,271 - backend.app - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
-2025-04-13 04:26:31,271 - backend.app - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
-2025-04-13 04:26:31,271 - backend.app - INFO - 正在加载默认模型...
-2025-04-13 04:26:31,271 - backend.app.services.detection - INFO - 找到 6 个模型文件
-2025-04-13 04:26:31,271 - backend.app.services.detection - INFO - 正在加载模型: best.pt
-2025-04-13 04:26:34,181 - backend.app.services.detection - INFO - 模型 best.pt 加载成功
-2025-04-13 04:26:34,182 - backend.app - INFO - 默认模型加载成功
-2025-04-13 04:30:55,712 - backend.app - INFO - 应用启动
-2025-04-13 04:30:55,716 - backend.app - INFO - 扫描可用模型...
-2025-04-13 04:30:55,716 - backend.app.services.detection - ERROR - 模型目录不存在: /mnt/data/Code/yyh/yolov11/backend/backend/models
-2025-04-13 04:30:55,716 - backend.app - WARNING - 未找到任何模型文件，请确保模型文件已放置在 backend/models 目录下
-2025-04-13 04:32:01,223 - backend.app - INFO - 应用启动
-2025-04-13 04:32:01,227 - backend.app - INFO - 扫描可用模型...
-2025-04-13 04:32:01,227 - backend.app.services.detection - ERROR - 模型目录不存在: /mnt/data/Code/yyh/yolov11/backend/backend/models
-2025-04-13 04:32:01,227 - backend.app - WARNING - 未找到任何模型文件，请确保模型文件已放置在 backend/models 目录下
-2025-04-13 04:32:50,046 - backend.app.services.detection - ERROR - 模型目录不存在: /mnt/data/Code/yyh/yolov11/backend/backend/models
-2025-04-13 04:32:58,038 - backend.app.services.detection - ERROR - 模型目录不存在: /mnt/data/Code/yyh/yolov11/backend/backend/models
-2025-04-13 04:33:21,118 - backend.app.services.detection - ERROR - 模型目录不存在: /mnt/data/Code/yyh/yolov11/backend/backend/models
-2025-04-13 04:33:55,474 - backend.app - INFO - 应用启动
-2025-04-13 04:33:55,481 - backend.app - INFO - 扫描可用模型...
-2025-04-13 04:33:55,481 - backend.app.services.detection - ERROR - 模型目录不存在: /mnt/data/Code/yyh/yolov11/backend/backend/models
-2025-04-13 04:33:55,481 - backend.app - WARNING - 未找到任何模型文件，请确保模型文件已放置在 backend/models 目录下
-2025-04-13 04:34:41,136 - backend.app.services.detection - ERROR - 模型目录不存在: /mnt/data/Code/yyh/yolov11/backend/backend/models
-2025-04-13 04:35:05,799 - backend.app.services.detection - ERROR - 模型目录不存在: /mnt/data/Code/yyh/yolov11/backend/backend/models
-2025-04-13 04:35:05,805 - backend.app.services.detection - ERROR - 模型目录不存在: /mnt/data/Code/yyh/yolov11/backend/backend/models
-2025-04-13 04:35:36,131 - backend.app.services.detection - ERROR - 模型目录不存在: /mnt/data/Code/yyh/yolov11/backend/backend/models
-2025-04-13 04:35:36,138 - backend.app.services.detection - ERROR - 模型目录不存在: /mnt/data/Code/yyh/yolov11/backend/backend/models
-2025-04-13 04:35:41,080 - backend.app.services.detection - ERROR - 模型目录不存在: /mnt/data/Code/yyh/yolov11/backend/backend/models
-2025-04-13 04:36:06,139 - backend.app.services.detection - ERROR - 模型目录不存在: /mnt/data/Code/yyh/yolov11/backend/backend/models
-2025-04-13 04:36:37,118 - backend.app.services.detection - ERROR - 模型目录不存在: /mnt/data/Code/yyh/yolov11/backend/backend/models
-2025-04-13 04:36:59,880 - backend.app - INFO - 应用启动
-2025-04-13 04:36:59,884 - backend.app - INFO - 扫描可用模型...
+2025-04-13 12:30:13,421 - backend.app.services.detection - INFO - 正在扫描模型目录: /home/bailey/Code/yyh/yolov11/backend/models
+2025-04-13 12:30:13,422 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 12:30:13,422 - backend.app.services.detection - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 12:30:13,422 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 12:30:13,422 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 12:30:13,422 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 12:30:13,422 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 12:30:13,422 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 12:30:13,422 - backend.app - INFO - 找到 6 个模型文件
+2025-04-13 12:30:13,422 - backend.app - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 12:30:13,423 - backend.app - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 12:30:13,423 - backend.app - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 12:30:13,423 - backend.app - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 12:30:13,423 - backend.app - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 12:30:13,423 - backend.app - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 12:30:13,423 - backend.app - INFO - 正在加载默认模型...
+2025-04-13 12:30:13,423 - backend.app.services.detection - INFO - 正在扫描模型目录: /home/bailey/Code/yyh/yolov11/backend/models
+2025-04-13 12:30:13,423 - backend.app.services.detection - INFO - 找到 6 个模型文件
+2025-04-13 12:30:13,423 - backend.app.services.detection - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 12:30:13,423 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 12:30:13,423 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 12:30:13,423 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 12:30:13,423 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 12:30:13,423 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 12:30:13,423 - backend.app.services.detection - INFO - 正在加载模型: best.pt
+2025-04-13 12:30:13,425 - backend.app.services.detection - ERROR - 加载模型失败: module 'torch' has no attribute 'load'
+2025-04-13 12:30:13,425 - backend.app - ERROR - 默认模型加载失败
+2025-04-13 12:30:13,426 - backend.app - ERROR - 多次尝试加载模型失败，请检查模型文件是否正确

@@ -7,7 +7,7 @@ def init_api(app):
     api_bp = Blueprint('api', __name__)
     
     # 注册子蓝图
-    api_bp.register_blueprint(detection_bp, url_prefix='/api')
+    api_bp.register_blueprint(detection_bp, url_prefix='/detection')
     
     # 添加当前模型信息路由
     @api_bp.route('/models/current', methods=['GET'])
@@ -28,5 +28,5 @@ def init_api(app):
                 'error': f"获取当前模型信息失败: {str(e)}"
             }), 500
     
-    # 注册API蓝图
-    app.register_blueprint(api_bp, url_prefix='/api')
+    return api_bp
+    

@@ -17,6 +17,11 @@ def create_app():
     # 加载配置
     app.config.from_object(Config)
     
+    # 注册API蓝图
+    from .api import init_api
+    api_bp = init_api(app)
+    app.register_blueprint(api_bp, url_prefix='/api')
+    
     try:
         # 配置日志
         if not os.path.exists('logs'):
@@ -43,7 +48,7 @@ def create_app():
         Config.init_app(app)
         
         # 初始化API路由
-        init_api(app)
+        # init_api(app)
         
         # 添加根路由，服务前端页面
         @app.route('/')

@@ -18,6 +18,10 @@ logger = logging.getLogger(__name__)
 
 def main():
     try:
+        # 切换到backend目录
+        os.chdir(current_dir)
+        logger.info(f"已切换工作目录到: {os.getcwd()}")
+        
         logger.info("正在创建应用实例...")
         app = create_app()
         
@@ -37,4 +41,4 @@ def main():
         raise
 
 if __name__ == '__main__':
-    main() 
+    main()

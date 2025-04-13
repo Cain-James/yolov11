@@ -231,42 +231,19 @@ def index():
                           message="模型正在加载中，请稍候..." if not model_loaded else "",
                           error=model_load_error)
 
-@main_bp.route('/api/model_status')
-def model_status():
-    """检查模型加载状态"""
+@main_bp.route('/api/detection/model/status', methods=['GET'])
+def get_model_status():
+    """获取模型状态"""
     try:
-        return jsonify({
-            'loaded': model_loaded,
-            'error': model_load_error,
-            'timestamp': time.time()
-        }), 200
+        return jsonify(detection_service.get_model_status())
     except Exception as e:
-        logger.error(f"状态检查失败: {str(e)}")
-        return jsonify({'error': 'Internal Server Error'}), 500
+        logger.error(f"获取模型状态失败: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
 
-@main_bp.route('/api/detect', methods=['POST'])
-def detect():
-    """处理图片检测请求"""
-    if not model_loaded:
-        return jsonify({'success': False, 'error': '模型尚未加载完成，请稍候...'})
-    
-    if 'file' not in request.files:
-        return jsonify({'success': False, 'error': '没有上传文件'})
-    
-    file = request.files['file']
-    if file.filename == '':
-        return jsonify({'success': False, 'error': '没有选择文件'})
-    
-    try:
-        logger.info(f"接收到文件: {file.filename}, 类型: {file.content_type}")
-        result = process_image(file, model)
-        return jsonify({
-            'success': True,
-            'data': result
-        })
-    except Exception as e:
-        logger.error(f"处理图片时出错: {e}")
-        return jsonify({'success': False, 'error': f"处理图片时出错: {str(e)}"})
+# 移除重复的/api/detect路由定义，该路由已在detection_bp中定义
 
 def process_image(image_file, model):
     """处理上传的图片并返回检测结果"""
@@ -426,34 +403,7 @@ def load_model():
         logging.error(f"加载模型失败: {str(e)}")
         return False
 
-@main_bp.route('/api/models/status', methods=['GET'])
-def get_models_status():
-    """获取模型状态"""
-    try:
-        return jsonify(detection_service.get_model_status())
-    except Exception as e:
-        return jsonify({
-            'success': False,
-            'error': str(e)
-        }), 500
 
-@main_bp.route('/api/models/current', methods=['GET'])
-def get_current_model():
-    """获取当前模型信息"""
-    try:
-        status = detection_service.get_model_status()
-        return jsonify({
-            'success': True,
-            'data': {
-                'current_model': status.get('current_model'),
-                'is_loaded': status.get('loaded', False)
-            }
-        })
-    except Exception as e:
-        return jsonify({
-            'success': False,
-            'error': str(e)
-        }), 500
 
 if __name__ == '__main__':
     # 在后台线程中加载模型
