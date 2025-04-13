@@ -1,83 +1,82 @@
-2025-04-13 15:47:39,116 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
-2025-04-13 15:47:39,117 - backend.app.services.detection - INFO - 找到 7 个模型文件
-2025-04-13 15:47:39,117 - backend.app.services.detection - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
-2025-04-13 15:47:39,117 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
-2025-04-13 15:47:39,117 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
-2025-04-13 15:47:39,117 - backend.app.services.detection - INFO - 模型: best00.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
-2025-04-13 15:47:39,117 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 5.02MB, 修改时间: 2025-04-13 15:09:00
-2025-04-13 15:47:39,117 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
-2025-04-13 15:47:39,117 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
-2025-04-13 15:47:39,127 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
-2025-04-13 15:47:39,128 - backend.app.services.detection - INFO - 找到 7 个模型文件
-2025-04-13 15:47:39,128 - backend.app.services.detection - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
-2025-04-13 15:47:39,128 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
-2025-04-13 15:47:39,128 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
-2025-04-13 15:47:39,128 - backend.app.services.detection - INFO - 模型: best00.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
-2025-04-13 15:47:39,128 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 5.02MB, 修改时间: 2025-04-13 15:09:00
-2025-04-13 15:47:39,128 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
-2025-04-13 15:47:39,128 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
-2025-04-13 15:47:47,039 - backend.app - ERROR - 检测过程出错: cannot open resource
-Traceback (most recent call last):
-  File "/mnt/data/Code/yyh/yolov11/backend/app/api/detection.py", line 47, in detect
-    result = detection_service.process_image(temp_path, model_path)
-  File "/mnt/data/Code/yyh/yolov11/backend/app/services/detection.py", line 291, in process_image
-    img = self.draw_chinese_text(img, label, (int(x1), label_y), color)
-  File "/mnt/data/Code/yyh/yolov11/backend/app/services/detection.py", line 221, in draw_chinese_text
-    font = ImageFont.truetype(self.font_path, 20)
-  File "/home/bailey/.local/share/mamba/envs/yolov11/lib/python3.10/site-packages/PIL/ImageFont.py", line 791, in truetype
-    return freetype(font)
-  File "/home/bailey/.local/share/mamba/envs/yolov11/lib/python3.10/site-packages/PIL/ImageFont.py", line 788, in freetype
-    return FreeTypeFont(font, size, index, encoding, layout_engine)
-  File "/home/bailey/.local/share/mamba/envs/yolov11/lib/python3.10/site-packages/PIL/ImageFont.py", line 226, in __init__
-    self.font = core.getfont(
-OSError: cannot open resource
-2025-04-13 15:48:46,555 - backend.app - INFO - 应用启动
-2025-04-13 15:48:46,556 - backend.app - INFO - 扫描可用模型... (尝试 1/3)
-2025-04-13 15:48:46,556 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
-2025-04-13 15:48:46,556 - backend.app.services.detection - INFO - 找到 7 个模型文件
-2025-04-13 15:48:46,556 - backend.app.services.detection - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
-2025-04-13 15:48:46,556 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
-2025-04-13 15:48:46,556 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
-2025-04-13 15:48:46,556 - backend.app.services.detection - INFO - 模型: best00.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
-2025-04-13 15:48:46,556 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 5.02MB, 修改时间: 2025-04-13 15:09:00
-2025-04-13 15:48:46,556 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
-2025-04-13 15:48:46,556 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
-2025-04-13 15:48:46,557 - backend.app - INFO - 找到 7 个模型文件
-2025-04-13 15:48:46,557 - backend.app - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
-2025-04-13 15:48:46,557 - backend.app - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
-2025-04-13 15:48:46,557 - backend.app - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
-2025-04-13 15:48:46,557 - backend.app - INFO - 模型: best00.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
-2025-04-13 15:48:46,557 - backend.app - INFO - 模型: best.pt, 大小: 5.02MB, 修改时间: 2025-04-13 15:09:00
-2025-04-13 15:48:46,557 - backend.app - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
-2025-04-13 15:48:46,557 - backend.app - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
-2025-04-13 15:48:46,557 - backend.app - INFO - 正在加载默认模型...
-2025-04-13 15:48:46,557 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
-2025-04-13 15:48:46,557 - backend.app.services.detection - INFO - 找到 7 个模型文件
-2025-04-13 15:48:46,557 - backend.app.services.detection - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
-2025-04-13 15:48:46,557 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
-2025-04-13 15:48:46,557 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
-2025-04-13 15:48:46,558 - backend.app.services.detection - INFO - 模型: best00.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
-2025-04-13 15:48:46,558 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 5.02MB, 修改时间: 2025-04-13 15:09:00
-2025-04-13 15:48:46,558 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
-2025-04-13 15:48:46,558 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
-2025-04-13 15:48:46,558 - backend.app.services.detection - INFO - 正在加载模型: best.pt
-2025-04-13 15:48:49,401 - backend.app.services.detection - INFO - 模型 best.pt 加载成功
-2025-04-13 15:48:49,402 - backend.app - INFO - 默认模型加载成功
-2025-04-13 15:49:02,092 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
-2025-04-13 15:49:02,092 - backend.app.services.detection - INFO - 找到 7 个模型文件
-2025-04-13 15:49:02,092 - backend.app.services.detection - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
-2025-04-13 15:49:02,093 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
-2025-04-13 15:49:02,093 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
-2025-04-13 15:49:02,093 - backend.app.services.detection - INFO - 模型: best00.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
-2025-04-13 15:49:02,093 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 5.02MB, 修改时间: 2025-04-13 15:09:00
-2025-04-13 15:49:02,093 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
-2025-04-13 15:49:02,093 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
-2025-04-13 15:49:02,102 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
-2025-04-13 15:49:02,102 - backend.app.services.detection - INFO - 找到 7 个模型文件
-2025-04-13 15:49:02,102 - backend.app.services.detection - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
-2025-04-13 15:49:02,102 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
-2025-04-13 15:49:02,102 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
-2025-04-13 15:49:02,102 - backend.app.services.detection - INFO - 模型: best00.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
-2025-04-13 15:49:02,102 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 5.02MB, 修改时间: 2025-04-13 15:09:00
-2025-04-13 15:49:02,102 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
-2025-04-13 15:49:02,102 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 16:48:07,500 - backend.app - INFO - 正在加载默认模型...
+2025-04-13 16:48:07,500 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
+2025-04-13 16:48:07,501 - backend.app.services.detection - INFO - 找到 7 个模型文件
+2025-04-13 16:48:07,501 - backend.app.services.detection - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 16:48:07,501 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 16:48:07,501 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 16:48:07,501 - backend.app.services.detection - INFO - 模型: best00.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 16:48:07,501 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 5.02MB, 修改时间: 2025-04-13 15:09:00
+2025-04-13 16:48:07,501 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 16:48:07,501 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 16:48:07,501 - backend.app.services.detection - INFO - 正在加载模型: best.pt
+2025-04-13 16:48:10,353 - backend.app.services.detection - INFO - 模型 best.pt 加载成功
+2025-04-13 16:48:10,353 - backend.app - INFO - 默认模型加载成功
+2025-04-13 16:48:16,778 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
+2025-04-13 16:48:16,779 - backend.app.services.detection - INFO - 找到 7 个模型文件
+2025-04-13 16:48:16,779 - backend.app.services.detection - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 16:48:16,779 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 16:48:16,779 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 16:48:16,779 - backend.app.services.detection - INFO - 模型: best00.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 16:48:16,779 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 5.02MB, 修改时间: 2025-04-13 15:09:00
+2025-04-13 16:48:16,779 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 16:48:16,779 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 16:48:16,787 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
+2025-04-13 16:48:16,788 - backend.app.services.detection - INFO - 找到 7 个模型文件
+2025-04-13 16:48:16,788 - backend.app.services.detection - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 16:48:16,788 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 16:48:16,788 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 16:48:16,788 - backend.app.services.detection - INFO - 模型: best00.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 16:48:16,788 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 5.02MB, 修改时间: 2025-04-13 15:09:00
+2025-04-13 16:48:16,788 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 16:48:16,788 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 16:48:32,991 - backend.app.services.detection - INFO - 检测到 12 个目标
+2025-04-13 16:48:32,991 - backend.app.services.detection - INFO - 类别统计: {'其他': {'total': 12, 'items': {'未知': 12}}}
+2025-04-13 16:54:17,668 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
+2025-04-13 16:54:17,669 - backend.app.services.detection - INFO - 找到 7 个模型文件
+2025-04-13 16:54:17,669 - backend.app.services.detection - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 16:54:17,669 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 16:54:17,669 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 16:54:17,669 - backend.app.services.detection - INFO - 模型: best00.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 16:54:17,670 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 5.02MB, 修改时间: 2025-04-13 15:09:00
+2025-04-13 16:54:17,670 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 16:54:17,670 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 16:54:17,678 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
+2025-04-13 16:54:17,679 - backend.app.services.detection - INFO - 找到 7 个模型文件
+2025-04-13 16:54:17,679 - backend.app.services.detection - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 16:54:17,679 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 16:54:17,679 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 16:54:17,679 - backend.app.services.detection - INFO - 模型: best00.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 16:54:17,679 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 5.02MB, 修改时间: 2025-04-13 15:09:00
+2025-04-13 16:54:17,679 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 16:54:17,679 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 16:54:33,243 - backend.app.services.detection - INFO - 检测到 12 个目标
+2025-04-13 16:54:33,243 - backend.app.services.detection - INFO - 类别统计: {'其他': {'total': 12, 'items': {'未知': 12}}}
+2025-04-13 16:54:48,784 - backend.app - INFO - 应用启动
+2025-04-13 16:54:48,785 - backend.app - INFO - 扫描可用模型... (尝试 1/3)
+2025-04-13 16:54:48,785 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
+2025-04-13 16:54:48,785 - backend.app.services.detection - INFO - 找到 7 个模型文件
+2025-04-13 16:54:48,785 - backend.app.services.detection - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 16:54:48,785 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 16:54:48,785 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 16:54:48,786 - backend.app.services.detection - INFO - 模型: best00.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 16:54:48,786 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 5.02MB, 修改时间: 2025-04-13 15:09:00
+2025-04-13 16:54:48,786 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 16:54:48,786 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 16:54:48,786 - backend.app - INFO - 找到 7 个模型文件
+2025-04-13 16:54:48,786 - backend.app - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 16:54:48,786 - backend.app - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 16:54:48,786 - backend.app - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 16:54:48,786 - backend.app - INFO - 模型: best00.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 16:54:48,786 - backend.app - INFO - 模型: best.pt, 大小: 5.02MB, 修改时间: 2025-04-13 15:09:00
+2025-04-13 16:54:48,786 - backend.app - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 16:54:48,786 - backend.app - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04
+2025-04-13 16:54:48,787 - backend.app - INFO - 正在加载默认模型...
+2025-04-13 16:54:48,787 - backend.app.services.detection - INFO - 正在扫描模型目录: /mnt/data/Code/yyh/yolov11/backend/models
+2025-04-13 16:54:48,787 - backend.app.services.detection - INFO - 找到 7 个模型文件
+2025-04-13 16:54:48,787 - backend.app.services.detection - INFO - 模型: best01.pt, 大小: 15.82MB, 修改时间: 2025-04-11 08:48:45
+2025-04-13 16:54:48,787 - backend.app.services.detection - INFO - 模型: tower_crane.pt, 大小: 49.63MB, 修改时间: 2025-03-26 19:37:16
+2025-04-13 16:54:48,787 - backend.app.services.detection - INFO - 模型: best_model.pt, 大小: 15.78MB, 修改时间: 2025-03-25 22:24:09
+2025-04-13 16:54:48,787 - backend.app.services.detection - INFO - 模型: best00.pt, 大小: 43.08MB, 修改时间: 2025-03-26 16:42:36
+2025-04-13 16:54:48,787 - backend.app.services.detection - INFO - 模型: best.pt, 大小: 5.02MB, 修改时间: 2025-04-13 15:09:00
+2025-04-13 16:54:48,787 - backend.app.services.detection - INFO - 模型: yolo11m-seg.pt, 大小: 43.30MB, 修改时间: 2025-03-18 06:56:23
+2025-04-13 16:54:48,787 - backend.app.services.detection - INFO - 模型: 0908.pt, 大小: 5.02MB, 修改时间: 2025-03-26 19:37:04

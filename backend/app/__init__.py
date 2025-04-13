@@ -61,40 +61,11 @@ def create_app():
         
         # 在应用上下文中初始化检测服务
         with app.app_context():
-            max_retries = 3
-            retry_count = 0
-            
-            while retry_count < max_retries:
-                app.logger.info(f'扫描可用模型... (尝试 {retry_count + 1}/{max_retries})')
-                available_models = detection_service.scan_available_models()
-                
-                if not available_models:
-                    app.logger.warning('未找到任何模型文件，请确保模型文件已放置在 backend/models 目录下')
-                    retry_count += 1
-                    if retry_count < max_retries:
-                        import time
-                        time.sleep(2)  # 等待2秒后重试
-                        continue
-                else:
-                    app.logger.info(f'找到 {len(available_models)} 个模型文件')
-                    for model_name, model_info in available_models.items():
-                        app.logger.info(f'模型: {model_name}, 大小: {model_info["size"]}, 修改时间: {model_info["last_modified"]}')
-                    
-                    # 尝试加载默认模型
-                    app.logger.info('正在加载默认模型...')
-                    if detection_service.load_model():
-                        app.logger.info('默认模型加载成功')
-                        break
-                    else:
-                        app.logger.error('默认模型加载失败')
-                        retry_count += 1
-                        if retry_count < max_retries:
-                            import time
-                            time.sleep(2)  # 等待2秒后重试
-                            continue
-            
-            if retry_count >= max_retries:
-                app.logger.error('多次尝试加载模型失败，请检查模型文件是否正确')
+            app.logger.info('正在加载默认模型...')
+            if detection_service.load_model():
+                app.logger.info('默认模型加载成功')
+            else:
+                app.logger.error('默认模型加载失败，请检查模型文件是否正确')
             
         return app
         

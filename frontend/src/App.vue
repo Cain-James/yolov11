@@ -5,7 +5,6 @@
         <h1 class="main-title">建筑图纸识别</h1>
       </el-header>
       <el-main>
-        <model-selector />
         <detection-panel />
       </el-main>
       <el-footer>
@@ -18,13 +17,11 @@
 <script>
 import { defineComponent } from 'vue'
 import DetectionPanel from './components/DetectionPanel.vue'
-import ModelSelector from './components/ModelSelector.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    DetectionPanel,
-    ModelSelector
+    DetectionPanel
   }
 })
 </script>
@@ -62,4 +59,4 @@ export default defineComponent({
   background: #ffffff;
   box-shadow: 0 -2px 12px 0 rgba(0,0,0,0.05);
 }
-</style> 
+</style>

@@ -49,19 +49,12 @@
 
         <!-- 主要内容区域 -->
         <el-main class="main-content">
-          <!-- 左上角模型信息 -->
-          <div class="model-info">
-            <el-tag :type="isModelReady ? 'success' : 'warning'" size="large">
-              {{ isModelReady ? '模型已就绪' : '模型正在加载中...' }}
-            </el-tag>
-          </div>
-
           <!-- 操作按钮区 -->
           <el-row class="action-bar" :gutter="24">
             <el-col :span="8">
               <el-button 
                 type="primary" 
-                @click="isModelReady ? handleDetect() : showModelNotReadyWarning()" 
+                @click="handleDetect()" 
                 :loading="detecting" 
                 :disabled="!currentFile" 
                 class="action-btn material-btn material-btn-primary">
@@ -89,16 +82,6 @@
               </el-button>
             </el-col>
           </el-row>
-
-          <!-- 模型状态提示 -->
-          <el-alert
-            v-if="!isModelReady"
-            title="模型正在加载中，请稍候..."
-            type="warning"
-            :closable="false"
-            show-icon
-            class="model-status-alert"
-          />
 
           <!-- 图片展示区域 -->
           <el-row :gutter="24" class="image-display-area">
@@ -439,55 +422,6 @@
           </el-row>
         </el-main>
       </el-container>
-
-    <!-- 右下角模型状态悬浮窗 -->
-    <div class="model-status-float">
-      <el-card class="model-status-card" shadow="hover">
-        <template #header>
-          <div class="card-header">
-            <span>模型状态</span>
-            <el-button type="primary" size="small" @click="refreshModelStatus">
-              <el-icon><refresh /></el-icon>
-              刷新
-            </el-button>
-          </div>
-        </template>
-        
-        <div class="model-status-content">
-          <!-- 当前模型状态 -->
-          <div class="status-item">
-            <span class="label">当前状态：</span>
-            <el-tag :type="isModelReady ? 'success' : 'warning'" size="small">
-              {{ isModelReady ? '已就绪' : '加载中' }}
-            </el-tag>
-          </div>
-          
-          <!-- 模型选择器 -->
-          <div class="status-item">
-            <span class="label">选择模型：</span>
-            <el-select 
-              v-model="selectedModel" 
-              placeholder="请选择模型"
-              size="small"
-              @change="handleModelChange">
-              <el-option
-                v-for="model in availableModels"
-                :key="model.path"
-                :label="model.name"
-                :value="model.path">
-                <span>{{ model.name }}</span>
-                <span class="model-info">({{ model.size }})</span>
-              </el-option>
-            </el-select>
-          </div>
-          
-          <!-- 模型加载进度 -->
-          <div v-if="!isModelReady" class="loading-progress">
-            <el-progress :percentage="loadingProgress" :status="loadingStatus" />
-          </div>
-        </div>
-      </el-card>
-    </div>
   </div>
 </template>
 
@@ -508,8 +442,7 @@ import {
   Loading,
   ArrowLeft,
   ArrowRight,
-  Search,
-  Refresh
+  Search
 } from '@element-plus/icons-vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import axios from 'axios'
@@ -558,27 +491,6 @@ interface ApiError {
   message: string
 }
 
-interface ModelInfo {
-  path: string;
-  name: string;
-  size: string;
-  last_modified: string;
-}
-
-interface ModelStatus {
-  available_models: Record<string, ModelInfo>;
-  current_model: string | null;
-  model_loaded: boolean;
-  total_models: number;
-}
-
-interface ApiResponse {
-  success: boolean;
-  status?: ModelStatus;
-  message?: string;
-  error?: string;
-}
-
 interface DetectionResult {
   success: boolean
   data: {
@@ -610,7 +522,7 @@ const folderInput = ref<HTMLInputElement | null>(null)
 const fileTreeData = ref<FileNode[]>([])
 const imageFiles = ref<FileNode[]>([])
 const currentImageIndex = ref(-1)
-const isModelReady = ref(true)  // 添加模型状态标志
+const isModelReady = ref(true)  // 修改为默认就绪状态
 
 // 检测相关的状态变量
 const currentFile = ref<UploadFile | null>(null)
@@ -1172,8 +1084,6 @@ const fetchModelStatus = async () => {
 </script>
 
 <style scoped>
-/* ... existing styles ... */
-
 /* 统一图片展示区域样式 */
 .image-display-area {
   margin-top: 24px;
@@ -1263,19 +1173,6 @@ const fetchModelStatus = async () => {
   display: flex;
   align-items: center;
   gap: 4px;
-}
-
-/* ... existing styles ... */
-
-.model-selector {
-  margin-bottom: 16px;
-}
-
-.model-info {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 100;
 }
 
 /* 模型状态悬浮窗样式 */
