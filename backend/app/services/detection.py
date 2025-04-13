@@ -55,7 +55,8 @@ class DetectionService:
             }
             
             # 加载中文字体
-            self.font_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'fonts', 'SimHei.ttf')
+            #self.font_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'fonts', 'SimHei.ttf')
+            self.font_path = '/home/bailey/Code/yyh/yolov11/backend/fonts/simsun(1).ttc'
             if not os.path.exists(self.font_path):
                 self.logger.warning(f"中文字体文件不存在: {self.font_path}")
             
@@ -208,25 +209,25 @@ class DetectionService:
     
     def draw_chinese_text(self, img, text, pos, color):
         """在图像上绘制中文文本"""
-        try:
-            from PIL import Image, ImageDraw, ImageFont
-            import numpy as np
-            
-            # 将OpenCV图像转换为PIL图像
-            img_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-            draw = ImageDraw.Draw(img_pil)
-            
-            # 加载字体
-            font = ImageFont.truetype(self.font_path, 20)
-            
-            # 绘制文本
-            draw.text(pos, text, font=font, fill=color)
-            
-            # 将PIL图像转换回OpenCV图像
-            return cv2.cvtColor(np.array(img_pil), cv2.COLOR_RGB2BGR)
-        except Exception as e:
-            self.logger.error(f"绘制中文文本失败: {str(e)}")
-            return img
+        # try:
+        from PIL import Image, ImageDraw, ImageFont
+        import numpy as np
+        
+        # 将OpenCV图像转换为PIL图像
+        img_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+        draw = ImageDraw.Draw(img_pil)
+        
+        # 加载字体
+        font = ImageFont.truetype(self.font_path, 200)
+        
+        # 绘制文本
+        draw.text(pos, text, font=font, fill=color)
+        
+        # 将PIL图像转换回OpenCV图像
+        return cv2.cvtColor(np.array(img_pil), cv2.COLOR_RGB2BGR)
+        # except Exception as e:
+        #     self.logger.error(f"绘制中文文本失败: {str(e)}")
+        #     return img
     
     def process_image(self, image_path, model_path=None):
         """处理图像
@@ -234,102 +235,104 @@ class DetectionService:
             image_path: 图像文件路径
             model_path: 可选的模型路径，如果不指定则使用当前加载的模型
         """
+        # try:
+        # 如果指定了模型路径，尝试加载该模型
+        if model_path:
+            model_name = os.path.basename(model_path)
+            if not self.load_model(model_name):
+                raise Exception(f"无法加载指定模型: {model_name}")
+        elif not self.model_loaded:
+            raise Exception("模型未准备就绪")
+        
+        # 检查图像文件是否存在
+        if not os.path.exists(image_path):
+            raise Exception(f"图像文件不存在: {image_path}")
+        
+        # 读取图像
+        img = cv2.imread(image_path)
+        if img is None:
+            raise Exception("无法读取图像")
+        
+        # 执行检测
         try:
-            # 如果指定了模型路径，尝试加载该模型
-            if model_path:
-                model_name = os.path.basename(model_path)
-                if not self.load_model(model_name):
-                    raise Exception(f"无法加载指定模型: {model_name}")
-            elif not self.model_loaded:
-                raise Exception("模型未准备就绪")
-            
-            # 检查图像文件是否存在
-            if not os.path.exists(image_path):
-                raise Exception(f"图像文件不存在: {image_path}")
-            
-            # 读取图像
-            img = cv2.imread(image_path)
-            if img is None:
-                raise Exception("无法读取图像")
-            
-            # 执行检测
-            try:
-                results = self.model.predict(img, conf=0.25)[0]  # 设置置信度阈值
-            except Exception as e:
-                raise Exception(f"模型预测失败: {str(e)}")
-            
-            # 处理检测结果
-            detections = []
-            class_counts = {}
-            
-            # 从结果中获取检测框
-            boxes = results.boxes
-            for box in boxes:
-                try:
-                    x1, y1, x2, y2 = box.xyxy[0].tolist()
-                    conf = box.conf[0].item()
-                    cls = box.cls[0].item()
-                    class_name = results.names[int(cls)]
-                    
-                    # 获取中文类别名
-                    category = self.CATEGORY_MAPPING.get(class_name, class_name)
-                    
-                    # 更新类别计数
-                    class_counts[category] = class_counts.get(category, 0) + 1
-                    
-                    # 获取颜色
-                    color = self.CATEGORY_COLORS.get(category, (0, 0, 255))
-                    
-                    # 在图像上绘制边界框
-                    cv2.rectangle(img, (int(x1), int(y1)), (int(x2), int(y2)), color, 2)
-                    
-                    # 绘制中文标签
-                    label = f"{category} {conf:.2f}"
-                    img = self.draw_chinese_text(img, label, (int(x1), int(y1)), color)
-                    
-                    detection = {
-                        'bbox': [int(x1), int(y1), int(x2), int(y2)],
-                        'confidence': float(conf),
-                        'category': category,
-                        'color': color
-                    }
-                    detections.append(detection)
-                except Exception as e:
-                    self.logger.warning(f"处理单个检测框时出错: {str(e)}")
-                    continue
-            
-            # 将检测后的图像编码为base64
-            try:
-                _, buffer = cv2.imencode('.png', img)
-                detected_image = base64.b64encode(buffer).decode('utf-8')
-            except Exception as e:
-                self.logger.error(f"图像编码失败: {str(e)}")
-                detected_image = None
-            
-            self.logger.info(f"检测到 {len(detections)} 个目标")
-            self.logger.info(f"类别统计: {class_counts}")
-            
-            return {
-                'success': True,
-                'data': {
-                    'detections': detections,
-                    'class_counts': class_counts,
-                    'detected_image': detected_image,
-                    'message': '检测成功'
-                }
-            }
-            
+            results = self.model.predict(img, conf=0.25)[0]  # 设置置信度阈值
         except Exception as e:
-            self.logger.error(f"处理图像失败: {str(e)}")
-            return {
-                'success': False,
-                'data': {
-                    'detections': [],
-                    'class_counts': {},
-                    'detected_image': None,
-                    'message': f"处理图像失败: {str(e)}"
-                }
+            raise Exception(f"模型预测失败: {str(e)}")
+        
+        # 处理检测结果
+        detections = []
+        class_counts = {}
+        
+        # 从结果中获取检测框
+        boxes = results.boxes
+        for box in boxes:
+            #try:
+            x1, y1, x2, y2 = box.xyxy[0].tolist()
+            conf = box.conf[0].item()
+            cls = box.cls[0].item()
+            class_name = results.names[int(cls)]
+            
+            # 获取中文类别名
+            category = self.CATEGORY_MAPPING.get(class_name, class_name)
+            
+            # 更新类别计数
+            class_counts[category] = class_counts.get(category, 0) + 1
+            
+            # 获取颜色
+            color = self.CATEGORY_COLORS.get(category, (0, 0, 255))
+            
+            # 在图像上绘制边界框
+            cv2.rectangle(img, (int(x1), int(y1)), (int(x2), int(y2)), color, 3)
+            
+            # 绘制中文标签
+            label = f"{category} {conf*100:.1f}%"
+            # 调整标签位置到框的上方
+            label_y = max(int(y1) - 25, 0)  # 确保标签不会超出图像边界
+            img = self.draw_chinese_text(img, label, (int(x1), label_y), color)
+            
+            detection = {
+                'bbox': [int(x1), int(y1), int(x2), int(y2)],
+                'confidence': float(conf),
+                'category': category,
+                'color': color
             }
+            detections.append(detection)
+            # except Exception as e:
+            #     self.logger.warning(f"处理单个检测框时出错: {str(e)}")
+            #     continue
+        
+        # 将检测后的图像编码为base64
+        try:
+            _, buffer = cv2.imencode('.png', img)
+            detected_image = base64.b64encode(buffer).decode('utf-8')
+        except Exception as e:
+            self.logger.error(f"图像编码失败: {str(e)}")
+            detected_image = None
+        
+        self.logger.info(f"检测到 {len(detections)} 个目标")
+        self.logger.info(f"类别统计: {class_counts}")
+        
+        return {
+            'success': True,
+            'data': {
+                'detections': detections,
+                'class_counts': class_counts,
+                'detected_image': detected_image,
+                'message': '检测成功'
+            }
+        }
+            
+        # except Exception as e:
+        #     self.logger.error(f"处理图像失败: {str(e)}")
+        #     return {
+        #         'success': False,
+        #         'data': {
+        #             'detections': [],
+        #             'class_counts': {},
+        #             'detected_image': None,
+        #             'message': f"处理图像失败: {str(e)}"
+        #         }
+        #     }
     
     def get_model_status(self):
         """获取模型状态信息"""
