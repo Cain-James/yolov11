@@ -141,8 +141,16 @@
                 <div class="image-container">
                   <template v-if="detecting">
                     <div class="loading-container">
-                      <el-icon class="loading-icon"><loading /></el-icon>
-                      <span>正在检测中...</span>
+                      <div class="loading-animation">
+                        <el-icon class="loading-icon"><loading /></el-icon>
+                        <div class="loading-text">
+                          <span>正在检测中</span>
+                          <span class="dots">...</span>
+                        </div>
+                        <div class="progress-bar">
+                          <div class="progress-inner"></div>
+                        </div>
+                      </div>
                     </div>
                   </template>
                   <template v-else>
@@ -1111,6 +1119,72 @@ const fetchModelStatus = async () => {
 /* 统一图片展示区域样式 */
 .image-display-area {
   margin-top: 24px;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--el-text-color-secondary);
+}
+
+.loading-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.loading-icon {
+  font-size: 32px;
+  animation: spin 2s linear infinite;
+}
+
+.loading-text {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.dots {
+  display: inline-block;
+  animation: dots 1.5s infinite;
+  width: 24px;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 4px;
+  background: var(--el-border-color-lighter);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-inner {
+  width: 40%;
+  height: 100%;
+  background: var(--el-color-primary);
+  border-radius: 2px;
+  animation: progress 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes dots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60% { content: '...'; }
+  80%, 100% { content: ''; }
+}
+
+@keyframes progress {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
 }
 
 .image-card {
