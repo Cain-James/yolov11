@@ -91,6 +91,7 @@
                 <template #header>
                   <div class="card-header">
                     <span class="section-title">原始图片</span>
+                    <span v-if="currentFile" class="file-name">{{ currentFile.name }}</span>
                     <div class="image-navigation">
                       <el-button 
                         type="primary" 
@@ -1183,6 +1184,12 @@ const fetchModelStatus = async () => {
   font-size: 16px;
   font-weight: 500;
   color: #303133;
+}
+
+.card-header .file-name {
+  margin-left: 10px;
+  color: #909399;
+  font-size: 14px;
 }
 
 /* 统一图片导航按钮样式 */

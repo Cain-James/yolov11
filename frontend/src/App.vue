@@ -2,13 +2,13 @@
   <div class="app-container">
     <el-container>
       <el-header>
-        <h1 class="main-title">建筑图纸识别</h1>
+        <h1 class="main-title">海南机器管招投标项目-建筑图纸识别系统</h1>
       </el-header>
       <el-main>
         <detection-panel />
       </el-main>
       <el-footer>
-        <p>© 2025 建筑图纸识别系统</p>
+        <p>© 2025 海南机器管招投标项目-建筑图纸识别系统v1.0</p>
       </el-footer>
     </el-container>
   </div>
