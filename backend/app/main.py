@@ -12,7 +12,11 @@ import threading
 import time
 import requests
 import json
-from ..services.detection import detection_service
+from backend.app.services.detection import detection_service
+from backend.app.services.rules_checker import RulesChecker
+
+# 初始化规则检查器
+rules_checker = RulesChecker()
 
 # 配置日志
 logging.basicConfig(
@@ -275,7 +279,7 @@ def process_image(image_file, model):
             
             # 4. 使用YOLO自带的绘图功能，但不显示置信度
             detected_img = results.plot(
-                line_width=3,          # 设置线条粗细
+                line_width=5,          # 设置线条粗细
                 boxes=True,            # 显示边界框
                 labels=True,           # 显示标签
                 conf=False             # 不显示置信度
@@ -404,6 +408,35 @@ def load_model():
         return False
 
 
+
+@main_bp.route('/api/check-rules', methods=['POST'])
+def check_rules():
+    """检查施工规范"""
+    try:
+        # 获取检测结果
+        data = request.get_json()
+        if not data or 'detections' not in data:
+            return jsonify({
+                'success': False,
+                'message': '未提供检测结果',
+                'results': []
+            }), 400
+
+        # 执行规则检查
+        results = rules_checker.check_rules(data['detections'])
+        
+        return jsonify({
+            'success': True,
+            'message': '规则检查完成',
+            'results': results
+        })
+    except Exception as e:
+        logger.error(f"规则检查失败: {str(e)}")
+        return jsonify({
+            'success': False,
+            'message': f'规则检查失败: {str(e)}',
+            'results': []
+        }), 500
 
 if __name__ == '__main__':
     # 在后台线程中加载模型

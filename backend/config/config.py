@@ -34,8 +34,6 @@ class Config:
     API_PREFIX = '/api'
     MAX_CONTENT_LENGTH = 50 * 1024 * 1024  # 限制上传大小为50MB
     
-    # Redis配置
-    REDIS_URL = os.environ.get('REDIS_URL') or 'redis://localhost:6379/0'
     
     # 硅基流动API配置
     SILICONFLOW_API_KEY = os.environ.get('SILICONFLOW_API_KEY') or "sk-njosapcjncszdpwwwydlmixtsapjmvwnoohaeigaabkhwlgy"

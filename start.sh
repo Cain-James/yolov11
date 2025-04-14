@@ -9,7 +9,7 @@ NC='\033[0m' # No Color
 # 检查并清理已占用的端口
 cleanup_ports() {
     echo -e "${BLUE}检查端口占用情况...${NC}"
-    for port in 3000 5000 5173 8080; do
+    for port in 5000 8080; do
         if lsof -i :$port > /dev/null; then
             echo -e "${RED}端口 $port 被占用，正在清理...${NC}"
             lsof -ti :$port | xargs kill -9 2>/dev/null
@@ -52,7 +52,7 @@ check_service() {
             return 0
         fi
         echo -e "${BLUE}等待服务启动 (尝试 $attempt/$max_attempts)...${NC}"
-        sleep 2
+        sleep 1
         attempt=$((attempt + 1))
     done
     return 1

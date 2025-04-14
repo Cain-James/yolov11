@@ -1051,7 +1051,22 @@ const handleDetect = async () => {
       })
       detectionResult.value.data.categorized_detections = categorizedDetections
       
-      ElMessage.success('检测完成')
+      // 发送规则检查请求
+      try {
+        const rulesResponse = await axios.post('/api/check-rules', {
+          detections: response.data.data.detections
+        })
+        
+        if (rulesResponse.data.success) {
+          detectionResult.value.data.rules_check_results = rulesResponse.data.results
+          ElMessage.success('检测和规则检查完成')
+        } else {
+          ElMessage.warning('检测完成，但规则检查失败: ' + (rulesResponse.data.error || '未知错误'))
+        }
+      } catch (rulesError) {
+        console.error('规则检查失败:', rulesError)
+        ElMessage.warning('检测完成，但规则检查失败')
+      }
     } else {
       ElMessage.error(response.data.error || '检测失败')
     }

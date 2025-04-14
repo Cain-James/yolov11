@@ -22,6 +22,10 @@ def create_app():
     api_bp = init_api(app)
     app.register_blueprint(api_bp, url_prefix='/api')
     
+    # 注册主蓝图
+    from .main import main_bp
+    app.register_blueprint(main_bp)
+    
     try:
         # 配置日志
         if not os.path.exists('logs'):
