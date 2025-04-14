@@ -224,6 +224,11 @@
                       :row-height="itemHeight"
                       @scroll="handleScroll">
                         <el-table-column prop="class" label="设备名称" />
+                      <el-table-column prop="confidence" label="置信度" width="100">
+                        <template #default="scope">
+                          {{ (scope.row.confidence * 100).toFixed(2) }}%
+                        </template>
+                      </el-table-column>
                       <el-table-column label="位置" width="120">
                           <template #default="scope">
                           <el-button 
@@ -397,15 +402,18 @@
                 </div>
                 
                 <!-- 检测结果统计 -->
-                <div v-if="detectionResult?.data?.class_summary" class="detection-summary-section">
+                <div v-if="detectionResult?.data?.class_counts" class="detection-summary-section">
                   <h3>检测结果统计</h3>
                   <el-row :gutter="10" class="summary-grid">
-                    <el-col v-for="(item, index) in detectionResult.data.class_summary" :key="index" 
+                    <el-col v-for="(category, categoryName) in detectionResult.data.class_counts" :key="categoryName" 
                            :xs="12" :sm="8" :md="6" :lg="4">
                       <el-card shadow="hover" class="summary-card">
                         <div class="summary-item">
-                          <span class="summary-name">{{ item.class }}</span>
-                          <span class="summary-count">{{ item.count }}</span>
+                          <span class="summary-category">{{ categoryName }}</span>
+                          <span class="summary-count">{{ category.count }}个</span>
+                          <div class="summary-items">
+                            {{ category.items.join('、') }}
+                          </div>
                         </div>
                       </el-card>
                     </el-col>
@@ -1006,7 +1014,8 @@ const handleDetect = async () => {
   }
 
   try {
-    loading.value = true
+    detecting.value = true
+    const startTime = Date.now()
     const formData = new FormData()
     formData.append('file', currentFile.value.raw)
 
@@ -1017,8 +1026,22 @@ const handleDetect = async () => {
     })
 
     if (response.data.success) {
+      const endTime = Date.now()
+      processingTime.value = endTime - startTime
       detectionResult.value = response.data
+      detectionData.value = response.data.data.detections
       detectedImage.value = `data:image/png;base64,${response.data.data.detected_image}`
+      
+      // 处理分类检测结果
+      const categorizedDetections = {}
+      response.data.data.detections.forEach(detection => {
+        if (!categorizedDetections[detection.category]) {
+          categorizedDetections[detection.category] = []
+        }
+        categorizedDetections[detection.category].push(detection)
+      })
+      detectionResult.value.data.categorized_detections = categorizedDetections
+      
       ElMessage.success('检测完成')
     } else {
       ElMessage.error(response.data.error || '检测失败')
@@ -1027,7 +1050,7 @@ const handleDetect = async () => {
     console.error('检测失败:', error)
     ElMessage.error('检测失败，请重试')
   } finally {
-    loading.value = false
+    detecting.value = false
   }
 }
 
