@@ -110,20 +110,63 @@ class DetectionService:
     
 
     
-    def draw_chinese_text(self, img, text, pos, color):
-        """在图像上绘制中文文本"""
-        # try:
+    def draw_chinese_text(self, img, text, pos, color, box_width):
+        """在图像上绘制中文文本
+        Args:
+            img: OpenCV图像
+            text: 要绘制的文本
+            pos: 文本位置 (x, y)
+            color: 文本颜色
+            box_width: 检测框的宽度，用于动态调整字体大小
+        """
         from PIL import Image, ImageDraw, ImageFont
         import numpy as np
+        
+        # 计算动态字体大小
+        img_height, img_width = img.shape[:2]
+        base_size = min(img_width, img_height)
+        # 字体大小基于图像尺寸和检测框宽度动态调整
+        font_size = int(min(base_size * 0.03, box_width * 0.3))  # 限制字体大小不超过框宽的30%
+        font_size = max(font_size, 12)  # 设置最小字体大小为12
         
         # 将OpenCV图像转换为PIL图像
         img_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
         draw = ImageDraw.Draw(img_pil)
         
         # 加载字体
-        font = ImageFont.truetype(self.font_path, 200)
+        font = ImageFont.truetype(self.font_path, font_size)
+        
+        # 获取文本大小
+        bbox = draw.textbbox((0, 0), text, font=font)
+        text_width = bbox[2] - bbox[0]
+        text_height = bbox[3] - bbox[1]
+        
+        # 绘制半透明背景
+        x, y = pos
+        padding = font_size // 4
+        background_coords = [
+            x - padding,
+            y - padding,
+            x + text_width + padding,
+            y + text_height + padding
+        ]
+        
+        # 确保背景不超出图像边界
+        background_coords = [
+            max(0, background_coords[0]),
+            max(0, background_coords[1]),
+            min(img_width, background_coords[2]),
+            min(img_height, background_coords[3])
+        ]
+        
+        # 绘制半透明背景
+        overlay = Image.new('RGBA', img_pil.size, (0, 0, 0, 0))
+        overlay_draw = ImageDraw.Draw(overlay)
+        overlay_draw.rectangle(background_coords, fill=(0, 0, 0, 128))
+        img_pil = Image.alpha_composite(img_pil.convert('RGBA'), overlay)
         
         # 绘制文本
+        draw = ImageDraw.Draw(img_pil)
         draw.text(pos, text, font=font, fill=color)
         
         # 将PIL图像转换回OpenCV图像
@@ -189,17 +232,36 @@ class DetectionService:
                 if display_name not in class_counts[category_name]['items']:
                     class_counts[category_name]['items'].append(display_name)
             
-            # 获取颜色
-            color = self.CATEGORY_COLORS.get(display_name, (0, 0, 255))
+            # 使用高饱和度的颜色
+            # 定义一组高饱和度的颜色
+            HIGH_SATURATION_COLORS = {
+                '起重机': (255, 0, 0),     # 红色
+                '塔吊': (0, 255, 0),      # 绿色
+                '挖掘机': (255, 128, 0),   # 橙色
+                '大门': (255, 0, 255),     # 洋红
+                '搅拌机': (0, 255, 255),   # 青色
+                '办公室': (255, 255, 0),   # 黄色
+                '红线': (255, 0, 0),      # 红色
+                '道路': (128, 0, 255),    # 紫色
+                '楼梯': (0, 128, 255),    # 蓝色
+                '钢筋加工厂': (255, 64, 0), # 橙红色
+                '宿舍': (0, 255, 128),    # 青绿色
+                '厕所': (128, 255, 0)     # 黄绿色
+            }
+            # 获取颜色，如果没有预定义则使用默认的蓝色
+            color = HIGH_SATURATION_COLORS.get(display_name, (0, 0, 255))
             
-            # 在图像上绘制边界框
-            cv2.rectangle(img, (int(x1), int(y1)), (int(x2), int(y2)), color, 3)
+            # 计算框的宽度
+            box_width = int(x2 - x1)
+            
+            # 在图像上绘制边界框，增加线条粗细
+            cv2.rectangle(img, (int(x1), int(y1)), (int(x2), int(y2)), color, 4)
             
             # 绘制中文标签
             label = f"{display_name}"
             # 调整标签位置到框的上方
-            label_y = max(int(y1) - 25, 0)  # 确保标签不会超出图像边界
-            img = self.draw_chinese_text(img, label, (int(x1), label_y), color)
+            label_y = max(int(y1) - 5, 0)  # 减小标签和框的间距
+            img = self.draw_chinese_text(img, label, (int(x1), label_y), color, box_width)
             
             detection = {
                 'bbox': [int(x1), int(y1), int(x2), int(y2)],

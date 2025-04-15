@@ -16,6 +16,22 @@ class RulesChecker:
     def _initialize_rules(self):
         """初始化规则列表"""
         return [
+            # 基础设施规则
+            {
+                "id": "1.5.4-1",
+                "category": "加工场",
+                "description": "应设置钢筋加工场",
+                "severity": "重要",
+                "check_method": self._check_steel_processing_exists
+            },
+            {
+                "id": "1.5.4-2",
+                "category": "加工场",
+                "description": "钢筋加工场应临近施工道路",
+                "severity": "重要",
+                "check_method": self._check_steel_processing_near_road
+            },
+            # 塔吊相关规则
             {
                 "id": "1.5.1-1",
                 "category": "塔吊",
@@ -26,17 +42,11 @@ class RulesChecker:
             {
                 "id": "1.5.1-2",
                 "category": "塔吊",
-                "description": "当多台塔式起重机在同一施工现场交叉作业时，任意两台塔式起重机之间的最小距离不得小于2m",
+                "description": "塔吊应完全覆盖主楼",
                 "severity": "严重",
-                "check_method": self._check_tower_crane_distance
+                "check_method": self._check_tower_crane_covers_main_building
             },
-            {
-                "id": "1.10.9-1",
-                "category": "办公室",
-                "description": "办公区选址应避开塔吊作业半径",
-                "severity": "严重",
-                "check_method": self._check_office_outside_tower_crane_radius
-            },
+            # 道路和通行规则
             {
                 "id": "1.5.8-1",
                 "category": "大门",
@@ -45,53 +55,11 @@ class RulesChecker:
                 "check_method": self._check_gate_connects_to_road
             },
             {
-                "id": "1.10.6-1",
+                "id": "1.5.8-2",
                 "category": "大门",
                 "description": "应至少设置一个大门",
                 "severity": "重要",
                 "check_method": self._check_gate_exists
-            },
-            {
-                "id": "1.10.8-1",
-                "category": "道路",
-                "description": "主干道路宽度不应小于6m",
-                "severity": "一般",
-                "check_method": self._check_main_road_width
-            },
-            {
-                "id": "1.10.8-2",
-                "category": "道路",
-                "description": "次干道路宽度不应低于3m",
-                "severity": "一般",
-                "check_method": self._check_secondary_road_width
-            },
-            {
-                "id": "1.10.1-1",
-                "category": "红线",
-                "description": "建筑物和设施应在红线范围内",
-                "severity": "严重",
-                "check_method": self._check_within_red_line
-            },
-            {
-                "id": "1.10.9-2",
-                "category": "宿舍",
-                "description": "距离宿舍25m范围内，严禁安置易燃易爆危险品仓库和加工作业房",
-                "severity": "严重",
-                "check_method": self._check_dormitory_safety_distance
-            },
-            {
-                "id": "1.10.8-6",
-                "category": "道路",
-                "description": "施工现场内应设置临时消防车道",
-                "severity": "严重",
-                "check_method": self._check_fire_truck_road_exists
-            },
-            {
-                "id": "1.10.8-4",
-                "category": "道路",
-                "description": "临时消防车道的净宽度不应小于4m",
-                "severity": "严重",
-                "check_method": self._check_fire_truck_road_width
             },
             {
                 "id": "1.5.7-1",
@@ -100,19 +68,42 @@ class RulesChecker:
                 "severity": "重要",
                 "check_method": self._check_road_connects_gate
             },
+            # 安全和消防规则
             {
-                "id": "1.10.3-1",
-                "category": "围挡",
-                "description": "施工场界围挡高度不应低于2.0m",
-                "severity": "一般",
-                "check_method": self._check_fence_height
+                "id": "1.10.8-6",
+                "category": "消防设施",
+                "description": "施工现场内应设置临时消防车道",
+                "severity": "严重",
+                "check_method": self._check_fire_truck_road_exists
             },
             {
-                "id": "1.6.4-1",
-                "category": "钢筋加工场",
-                "description": "主体施工阶段应设置钢筋加工场",
+                "id": "1.10.8-7",
+                "category": "消防设施",
+                "description": "应设置洗车池和三级沉淀池",
                 "severity": "重要",
-                "check_method": self._check_steel_processing_exists
+                "check_method": self._check_car_wash_exists
+            },
+            {
+                "id": "1.10.1-1",
+                "category": "场地布局",
+                "description": "建筑物和设施应在红线范围内",
+                "severity": "严重",
+                "check_method": self._check_within_red_line
+            },
+            # 材料堆场规则
+            {
+                "id": "1.7.3-1",
+                "category": "材料堆场",
+                "description": "材料堆场应临近施工道路",
+                "severity": "一般",
+                "check_method": self._check_material_storage_near_road
+            },
+            {
+                "id": "1.7.3-2",
+                "category": "材料堆场",
+                "description": "危险品堆场应与其他区域分开设置",
+                "severity": "严重",
+                "check_method": self._check_hazardous_material_storage_isolation
             }
         ]
     
@@ -490,6 +481,206 @@ class RulesChecker:
         return {
             "status": "合规",
             "message": f"已设置{len(steel_processing)}个钢筋加工场"
+        }
+        
+    def _check_steel_processing_near_road(self, detections):
+        """检查钢筋加工场是否临近施工道路"""
+        steel_processing = [d for d in detections if d['class'] == '钢筋加工厂']
+        roads = [d for d in detections if d['class'] == '施工道路']
+        
+        if not steel_processing:
+            return {
+                "status": "不合规",
+                "message": "未设置钢筋加工场"
+            }
+            
+        if not roads:
+            return {
+                "status": "不合规",
+                "message": "未检测到施工道路"
+            }
+            
+        for sp in steel_processing:
+            sp_center = Point((sp['bbox'][0] + sp['bbox'][2]) / 2, 
+                            (sp['bbox'][1] + sp['bbox'][3]) / 2)
+            
+            for road in roads:
+                road_polygon = Polygon([
+                    (road['bbox'][0], road['bbox'][1]),
+                    (road['bbox'][2], road['bbox'][1]),
+                    (road['bbox'][2], road['bbox'][3]),
+                    (road['bbox'][0], road['bbox'][3])
+                ])
+                
+                if road_polygon.distance(sp_center) < 50:  # 50像素阈值
+                    return {
+                        "status": "合规",
+                        "message": "钢筋加工场临近施工道路"
+                    }
+        
+        return {
+            "status": "不合规",
+            "message": "钢筋加工场未临近施工道路"
+        }
+        
+    def _check_tower_crane_covers_main_building(self, detections):
+        """检查塔吊是否完全覆盖主楼"""
+        tower_cranes = [d for d in detections if d['class'] == '塔吊']
+        buildings = [d for d in detections if d['class'] == '主楼']
+        
+        if not tower_cranes:
+            return {
+                "status": "不合规",
+                "message": "未检测到塔吊"
+            }
+            
+        if not buildings:
+            return {
+                "status": "不合规",
+                "message": "未检测到主楼"
+            }
+            
+        for building in buildings:
+            building_polygon = Polygon([
+                (building['bbox'][0], building['bbox'][1]),
+                (building['bbox'][2], building['bbox'][1]),
+                (building['bbox'][2], building['bbox'][3]),
+                (building['bbox'][0], building['bbox'][3])
+            ])
+            
+            covered = False
+            for crane in tower_cranes:
+                crane_center = Point((crane['bbox'][0] + crane['bbox'][2]) / 2, 
+                                   (crane['bbox'][1] + crane['bbox'][3]) / 2)
+                crane_radius = max(crane['bbox'][2] - crane['bbox'][0], 
+                                 crane['bbox'][3] - crane['bbox'][1]) / 2
+                
+                # 检查主楼的四个角点是否都在塔吊覆盖范围内
+                corners = [
+                    Point(building['bbox'][0], building['bbox'][1]),
+                    Point(building['bbox'][2], building['bbox'][1]),
+                    Point(building['bbox'][2], building['bbox'][3]),
+                    Point(building['bbox'][0], building['bbox'][3])
+                ]
+                
+                if all(crane_center.distance(corner) <= crane_radius for corner in corners):
+                    covered = True
+                    break
+            
+            if not covered:
+                return {
+                    "status": "不合规",
+                    "message": "塔吊未完全覆盖主楼"
+                }
+        
+        return {
+            "status": "合规",
+            "message": "塔吊完全覆盖主楼"
+        }
+        
+    def _check_car_wash_exists(self, detections):
+        """检查是否设置洗车池和三级沉淀池"""
+        car_wash = [d for d in detections if d['class'] == '洗车池']
+        sedimentation = [d for d in detections if d['class'] == '三级沉淀池']
+        
+        if not car_wash:
+            return {
+                "status": "不合规",
+                "message": "未设置洗车池"
+            }
+            
+        if not sedimentation:
+            return {
+                "status": "不合规",
+                "message": "未设置三级沉淀池"
+            }
+            
+        return {
+            "status": "合规",
+            "message": f"已设置{len(car_wash)}个洗车池和{len(sedimentation)}个三级沉淀池"
+        }
+        
+    def _check_material_storage_near_road(self, detections):
+        """检查材料堆场是否临近施工道路"""
+        storages = [d for d in detections if d['class'] == '材料堆场']
+        roads = [d for d in detections if d['class'] == '施工道路']
+        
+        if not storages:
+            return {
+                "status": "不合规",
+                "message": "未检测到材料堆场"
+            }
+            
+        if not roads:
+            return {
+                "status": "不合规",
+                "message": "未检测到施工道路"
+            }
+            
+        for storage in storages:
+            storage_center = Point((storage['bbox'][0] + storage['bbox'][2]) / 2, 
+                                 (storage['bbox'][1] + storage['bbox'][3]) / 2)
+            
+            near_road = False
+            for road in roads:
+                road_polygon = Polygon([
+                    (road['bbox'][0], road['bbox'][1]),
+                    (road['bbox'][2], road['bbox'][1]),
+                    (road['bbox'][2], road['bbox'][3]),
+                    (road['bbox'][0], road['bbox'][3])
+                ])
+                
+                if road_polygon.distance(storage_center) < 50:  # 50像素阈值
+                    near_road = True
+                    break
+            
+            if not near_road:
+                return {
+                    "status": "不合规",
+                    "message": "存在材料堆场未临近施工道路"
+                }
+        
+        return {
+            "status": "合规",
+            "message": "所有材料堆场均临近施工道路"
+        }
+        
+    def _check_hazardous_material_storage_isolation(self, detections):
+        """检查危险品堆场是否与其他区域分开设置"""
+        hazardous = [d for d in detections if d['class'] == '危险品堆场']
+        other_areas = [d for d in detections if d['class'] in ['材料堆场', '钢筋加工厂', '办公区', '生活区']]
+        
+        if not hazardous:
+            return {
+                "status": "合规",
+                "message": "未设置危险品堆场"
+            }
+            
+        for haz in hazardous:
+            haz_polygon = Polygon([
+                (haz['bbox'][0], haz['bbox'][1]),
+                (haz['bbox'][2], haz['bbox'][1]),
+                (haz['bbox'][2], haz['bbox'][3]),
+                (haz['bbox'][0], haz['bbox'][3])
+            ])
+            
+            for area in other_areas:
+                area_polygon = Polygon([
+                    (area['bbox'][0], area['bbox'][1]),
+                    (area['bbox'][2], area['bbox'][1]),
+                    (area['bbox'][2], area['bbox'][3]),
+                    (area['bbox'][0], area['bbox'][3])
+                ])
+                
+                if haz_polygon.distance(area_polygon) < 100:  # 100像素安全距离
+                    return {
+                        "status": "不合规",
+                        "message": f"危险品堆场与{area['class']}距离过近"
+                    }
+        
+        return {
+            "status": "合规",
+            "message": "危险品堆场与其他区域保持安全距离"
         }
     
     def check_rules(self, detections):
