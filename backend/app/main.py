@@ -282,7 +282,7 @@ def process_image(image_file, model):
                 line_width=5,          # 设置线条粗细
                 boxes=True,            # 显示边界框
                 labels=True,           # 显示标签
-                conf=False             # 不显示置信度
+                conf=True             # 不显示置信度
             )
             
             # 5. 统计每个类别的检测结果

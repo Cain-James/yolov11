@@ -1,41 +1,52 @@
 model:
-  name: 'yolov11'
-  backbone: 'mobilenet_v2'
-  pretrained: true
-  pretrained_path: '../models/pretrained/yolo11m.pt'
+  name: "YOLOv11"
+  backbone: "resnet50"  # 可选: "resnet50", "mobilenet_v2"
+  pretrained: false
   num_classes: 12
-  input_size: [320, 320]
-  anchors: [
-    [10, 13], [16, 30], [33, 23],
-    [30, 61], [62, 45], [59, 119],
-    [116, 90], [156, 198], [373, 326]
-  ]
+  input_size: [640, 640]
+  anchors: [[10,13], [16,30], [33,23], [30,61], [62,45], [59,119], [116,90], [156,198], [373,326]]
+  use_aspp: false  # 是否使用ASPP模块
+  type: 'darknet'
+  neck:
+    type: 'fpn'
+    in_channels: [256, 512, 1024]
+    out_channels: 256
+  head:
+    type: 'yolo'
+    num_anchors: 3
+    num_classes: 12
+    in_channels: 256
 
 training:
   batch_size: 16
   epochs: 100
-  learning_rate: 0.0001
+  learning_rate: 0.001
   weight_decay: 0.0005
   warmup_epochs: 5
   save_interval: 10
-  eval_interval: 5
-  checkpoint_dir: ../models/checkpoints
-  gradient_accumulation_steps: 16
+  eval_interval: 1
+  checkpoint_dir: "training/models"
+  gradient_accumulation_steps: 1
   log_interval: 10
+  num_workers: 4
 
 data:
   # 数据集路径配置
   dataset_root: training/data  # 数据集根目录
-  train_path: training/data/imgs  # 训练图像目录
-  val_path: training/data/imgs    # 验证图像目录
-  test_path: training/data/imgs   # 测试图像目录
-  label_dir: training/data/labels # 标签目录
-  num_workers: 4
-  img_size: [320, 320]
+  train_path: "training/data/imgs"  # 所有图片都在imgs目录下
+  val_path: "training/data/imgs"    # 验证集也使用imgs目录
+  test_path: "training/data/imgs"   # 测试集也使用imgs目录
+  label_dir: "training/data/labels" # 标签目录
+  img_size: [640, 640]
   augment: true
   cache_images: false
   
-  # 类别名称映射（从cad2024.yaml）
+  # 数据集划分比例
+  train_ratio: 0.7  # 训练集比例
+  val_ratio: 0.2    # 验证集比例
+  test_ratio: 0.1   # 测试集比例
+  
+  # 类别名称映射
   class_names:
     0: "起重机"
     1: "宿舍"
@@ -50,25 +61,26 @@ data:
     10: "塔吊"
     11: "厕所"
 
-  # 数据增强配置（从cad2024.yaml）
+  # 数据增强配置
   augmentation:
-    mosaic: 1.0          # mosaic增强的概率
-    mixup: 0.15         # mixup增强的概率
-    copy_paste: 0.3     # 复制粘贴增强的概率
-    random_perspective: 0.5  # 随机透视变换的概率
-    hsv_h: 0.015        # HSV色调增强范围
-    hsv_s: 0.7          # HSV饱和度增强范围
-    hsv_v: 0.4          # HSV亮度增强范围
-    translate: 0.2      # 平移增强范围
-    scale: 0.9          # 缩放增强范围
-    fliplr: 0.5         # 水平翻转概率
-    flipud: 0.1         # 垂直翻转概率
+    hsv_h: 0.015  # HSV-Hue增强
+    hsv_s: 0.7    # HSV-Saturation增强
+    hsv_v: 0.4    # HSV-Value增强
+    degrees: 0.0   # 旋转角度
+    translate: 0.1 # 平移
+    scale: 0.5    # 缩放
+    shear: 0.0    # 剪切
+    perspective: 0.0  # 透视变换
+    flipud: 0.0   # 上下翻转概率
+    fliplr: 0.5   # 左右翻转概率
+    mosaic: 1.0   # Mosaic增强概率
+    mixup: 0.0    # Mixup增强概率
 
   # 类别说明（便于参考）
   class_descriptions:
-    起重机: "Crane"
-    宿舍: "Dormitory"
-    挖掘机: "Excavator"
+    起重机: "建筑工地上的起重机设备"
+    宿舍: "工人居住的临时宿舍"
+    挖掘机: "用于土方作业的挖掘机"
     大门: "Gate"
     搅拌机: "Mixer"
     办公室: "Office"
@@ -78,3 +90,29 @@ data:
     钢筋加工厂: "Steel_processing"
     塔吊: "Tower_Crane"
     厕所: "toilet"
+
+classes:
+  - name: "起重机"
+    description: "建筑工地上的起重机设备"
+  - name: "宿舍"
+    description: "工人居住的临时宿舍"
+  - name: "塔吊"
+    description: "建筑工地上的塔式起重机"
+  - name: "挖掘机"
+    description: "用于土方作业的挖掘机"
+  - name: "推土机"
+    description: "用于平整土地的推土机"
+  - name: "混凝土搅拌车"
+    description: "运输混凝土的专用车辆"
+  - name: "钢筋"
+    description: "建筑用钢筋材料"
+  - name: "脚手架"
+    description: "建筑工地上的脚手架"
+  - name: "安全帽"
+    description: "工人佩戴的安全帽"
+  - name: "反光衣"
+    description: "工人穿着的反光安全服"
+  - name: "警示牌"
+    description: "工地安全警示标志"
+  - name: "围栏"
+    description: "工地围挡和安全围栏"

@@ -8,7 +8,7 @@ import albumentations as A
 from albumentations.pytorch import ToTensorV2
 
 class YOLODataset(Dataset):
-    def __init__(self, img_dir, label_dir, img_size=(640, 640), augment=True, num_classes=12):
+    def __init__(self, img_dir, label_dir, img_size=(640, 640), augment=True, num_classes=12, img_files=None):
         self.img_dir = img_dir
         self.label_dir = label_dir
         self.img_size = img_size
@@ -16,7 +16,10 @@ class YOLODataset(Dataset):
         self.num_classes = num_classes
         
         # 获取所有图片文件
-        self.img_files = [f for f in os.listdir(img_dir) if f.endswith(('.jpg', '.png'))]
+        if img_files is None:
+            self.img_files = [f for f in os.listdir(img_dir) if f.endswith(('.jpg', '.png', '.jpeg'))]
+        else:
+            self.img_files = img_files
         
         # 数据增强转换 - 减小变换幅度，使用更安全的参数
         self.transform = A.Compose([
@@ -171,14 +174,15 @@ class YOLODataset(Dataset):
         return transformed['image'], torch.zeros((0, 5))
 
 def create_dataloader(img_dir, label_dir, batch_size=16, img_size=(640, 640), 
-                     augment=True, num_workers=4, num_classes=12):
+                     augment=True, num_workers=4, num_classes=12, img_files=None):
     """创建数据加载器"""
     dataset = YOLODataset(
         img_dir=img_dir,
         label_dir=label_dir,
         img_size=img_size,
         augment=augment,
-        num_classes=num_classes
+        num_classes=num_classes,
+        img_files=img_files
     )
     
     return DataLoader(
@@ -194,12 +198,28 @@ def collate_fn(batch):
     """自定义批次整理函数"""
     imgs, targets = zip(*batch)
     
+    # 过滤掉空的目标
+    imgs = [img for img, target in batch if len(target) > 0]
+    targets = [target for _, target in batch if len(target) > 0]
+    
+    if len(imgs) == 0:
+        # 返回一个空批次
+        return torch.zeros((1, 3, 640, 640)), torch.zeros((1, 0, 5))
+    
     # 堆叠图片
-    imgs = torch.stack(imgs)
+    imgs = torch.stack(imgs, 0)
     
     # 处理目标
-    for i, boxes in enumerate(targets):
-        boxes[:, 0] = i  # 添加批次索引
-    targets = torch.cat(targets, 0)
+    # 找到批次中最大的目标数量
+    max_boxes = max(len(target) for target in targets)
     
-    return imgs, targets 
+    # 创建一个新的目标张量
+    batch_size = len(targets)
+    new_targets = torch.zeros((batch_size, max_boxes, 5), dtype=targets[0].dtype, device=targets[0].device)
+    
+    # 填充目标张量
+    for i, target in enumerate(targets):
+        if len(target) > 0:
+            new_targets[i, :len(target)] = target
+    
+    return imgs, new_targets 

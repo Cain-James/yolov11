@@ -1,0 +1,67 @@
+model:
+  input_size: [640, 640]
+  num_classes: 12
+  anchors:
+    - [10, 13]
+    - [16, 30]
+    - [33, 23]
+    - [30, 61]
+    - [62, 45]
+    - [59, 119]
+    - [116, 90]
+    - [156, 198]
+    - [373, 326]
+  backbone:
+    type: 'darknet'
+    pretrained: false
+  neck:
+    type: 'fpn'
+    in_channels: [256, 512, 1024]
+    out_channels: 256
+  head:
+    type: 'yolo'
+    num_anchors: 3
+    num_classes: 12
+    in_channels: 256
+  aspp:  # ASPP模块配置
+    type: 'aspp'
+    in_channels: 256
+    out_channels: 256
+    rates: [1, 6, 12, 18]  # 空洞卷积的扩张率
+    dropout_rate: 0.1
+
+training:
+  batch_size: 16
+  epochs: 100
+  learning_rate: 0.001
+  weight_decay: 0.0005
+  warmup_epochs: 5
+  save_interval: 10
+  eval_interval: 1
+
+data:
+  train_images: 'training/data/imgs'  # 所有图片都在imgs目录下
+  train_labels: 'training/data/labels'
+  val_images: 'training/data/imgs'    # 验证集也使用imgs目录
+  val_labels: 'training/data/labels'
+  test_images: 'training/data/imgs'   # 测试集也使用imgs目录
+  test_labels: 'training/data/labels'
+  
+  # 数据集划分比例
+  train_ratio: 0.7  # 训练集比例
+  val_ratio: 0.2    # 验证集比例
+  test_ratio: 0.1   # 测试集比例
+  
+augmentation:
+  hsv_h: 0.015
+  hsv_s: 0.7
+  hsv_v: 0.4
+  degrees: 0.0
+  translate: 0.1
+  scale: 0.5
+  shear: 0.0
+  perspective: 0.0
+  flipud: 0.0
+  fliplr: 0.5
+  mosaic: 1.0
+  mixup: 0.0 

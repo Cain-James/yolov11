@@ -2,9 +2,10 @@ import torch
 import torch.nn as nn
 import torchvision.models as models
 import os
+from .aspp import ASPP
 
 class YOLOv11(nn.Module):
-    def __init__(self, num_classes=10, backbone='resnet50', pretrained=False, pretrained_path=None):
+    def __init__(self, num_classes=10, backbone='resnet50', pretrained=False, pretrained_path=None, use_aspp=False):
         super(YOLOv11, self).__init__()
         # 加载主干网络
         if backbone == 'resnet50':
@@ -20,19 +21,38 @@ class YOLOv11(nn.Module):
         else:
             raise ValueError(f"不支持的主干网络: {backbone}，目前支持的网络有：resnet50, mobilenet_v2")
         
-        # 检测头 - 使用更少的通道数以减少内存使用
-        mid_channels = min(512, self.backbone_channels)
-        self.detect_head = nn.Sequential(
-            nn.Conv2d(self.backbone_channels, mid_channels, 1),
-            nn.BatchNorm2d(mid_channels),
-            nn.LeakyReLU(0.1),
-            
-            nn.Conv2d(mid_channels, mid_channels // 2, 3, padding=1),
-            nn.BatchNorm2d(mid_channels // 2),
-            nn.LeakyReLU(0.1),
-            
-            nn.Conv2d(mid_channels // 2, (num_classes + 5) * 3, 1)  # 3个anchor boxes
-        )
+        # 是否使用ASPP模块
+        self.use_aspp = use_aspp
+        if use_aspp:
+            # 添加ASPP模块
+            self.aspp = ASPP(self.backbone_channels, self.backbone_channels)
+            # 检测头 - 使用更少的通道数以减少内存使用
+            mid_channels = min(512, self.backbone_channels)
+            self.detect_head = nn.Sequential(
+                nn.Conv2d(self.backbone_channels, mid_channels, 1),
+                nn.BatchNorm2d(mid_channels),
+                nn.LeakyReLU(0.1),
+                
+                nn.Conv2d(mid_channels, mid_channels // 2, 3, padding=1),
+                nn.BatchNorm2d(mid_channels // 2),
+                nn.LeakyReLU(0.1),
+                
+                nn.Conv2d(mid_channels // 2, (num_classes + 5) * 3, 1)  # 3个anchor boxes
+            )
+        else:
+            # 检测头 - 使用更少的通道数以减少内存使用
+            mid_channels = min(512, self.backbone_channels)
+            self.detect_head = nn.Sequential(
+                nn.Conv2d(self.backbone_channels, mid_channels, 1),
+                nn.BatchNorm2d(mid_channels),
+                nn.LeakyReLU(0.1),
+                
+                nn.Conv2d(mid_channels, mid_channels // 2, 3, padding=1),
+                nn.BatchNorm2d(mid_channels // 2),
+                nn.LeakyReLU(0.1),
+                
+                nn.Conv2d(mid_channels // 2, (num_classes + 5) * 3, 1)  # 3个anchor boxes
+            )
 
         # 加载本地预训练模型
         if pretrained and pretrained_path and os.path.exists(pretrained_path):
@@ -96,6 +116,10 @@ class YOLOv11(nn.Module):
     def forward(self, x):
         # 特征提取
         features = self.backbone(x)
+        
+        # 如果使用ASPP模块，则应用ASPP
+        if self.use_aspp:
+            features = self.aspp(features)
         
         # 检测头
         output = self.detect_head(features)
