@@ -7,6 +7,8 @@ from threading import Lock
 from datetime import datetime
 import glob
 import base64
+import json
+import hashlib
 
 class DetectionService:
     _instance = None
@@ -27,6 +29,10 @@ class DetectionService:
             self.initialized = True
             self.logger = logging.getLogger(__name__)
             self.model = None
+            # 创建缓存目录
+            self.cache_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'cache')
+            if not os.path.exists(self.cache_dir):
+                os.makedirs(self.cache_dir)
             # 直接加载默认模型
             self.load_model()
             
@@ -82,33 +88,54 @@ class DetectionService:
             # 扫描可用模型
             self.available_models = {}
     
+    def _get_image_hash(self, image_path):
+        """计算图片的MD5哈希值作为缓存键"""
+        with open(image_path, 'rb') as f:
+            return hashlib.md5(f.read()).hexdigest()
 
-    
+    def _get_cache_path(self, image_hash):
+        """获取缓存文件路径"""
+        return os.path.join(self.cache_dir, f"{image_hash}.json")
 
-    
-    def load_model(self):
-        """加载默认模型 best.pt"""
+    def _save_to_cache(self, image_hash, result):
+        """保存检测结果到缓存"""
+        cache_path = self._get_cache_path(image_hash)
+        with open(cache_path, 'w', encoding='utf-8') as f:
+            json.dump(result, f, ensure_ascii=False, indent=2)
+
+    def _load_from_cache(self, image_hash):
+        """从缓存加载检测结果"""
+        cache_path = self._get_cache_path(image_hash)
+        if os.path.exists(cache_path):
+            with open(cache_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        return None
+
+    def load_model(self, model_name=None):
+        """加载模型
+        Args:
+            model_name: 可选的模型名称，如果不指定则使用默认模型
+        """
         try:
-            from backend.config.config import Config
-            model_path = os.path.join(Config.MODEL_DIR, 'best.pt')
+            # 直接使用best.pt作为默认模型
+            model_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'models', 'best.pt')
             
             if not os.path.exists(model_path):
-                self.logger.error(f"默认模型不存在: {model_path}")
+                self.logger.error(f"模型文件不存在: {model_path}")
                 return False
                 
-            self.logger.info("正在加载默认模型: best.pt")
+            self.logger.info(f"正在加载模型: {model_path}")
             
             # 使用YOLO类直接加载模型
             from ultralytics import YOLO
             self.model = YOLO(model_path)
-            self.logger.info("默认模型加载成功")
+            self.current_model_path = model_path
+            self.logger.info("模型加载成功")
             return True
             
         except Exception as e:
             self.logger.error(f"加载模型失败: {str(e)}")
             return False
-    
-
     
     def draw_chinese_text(self, img, text, pos, color, box_width):
         """在图像上绘制中文文本
@@ -171,9 +198,6 @@ class DetectionService:
         
         # 将PIL图像转换回OpenCV图像
         return cv2.cvtColor(np.array(img_pil), cv2.COLOR_RGB2BGR)
-        # except Exception as e:
-        #     self.logger.error(f"绘制中文文本失败: {str(e)}")
-        #     return img
     
     def process_image(self, image_path, model_path=None):
         """处理图像
@@ -181,14 +205,19 @@ class DetectionService:
             image_path: 图像文件路径
             model_path: 可选的模型路径，如果不指定则使用当前加载的模型
         """
-        # try:
-        # 如果指定了模型路径，尝试加载该模型
-        if model_path:
-            model_name = os.path.basename(model_path)
-            if not self.load_model(model_name):
-                raise Exception(f"无法加载指定模型: {model_name}")
-        elif self.model is None:
-            raise Exception("模型未准备就绪")
+        # 计算图片哈希值
+        image_hash = self._get_image_hash(image_path)
+        
+        # 尝试从缓存加载结果
+        cached_result = self._load_from_cache(image_hash)
+        if cached_result:
+            self.logger.info(f"从缓存加载检测结果: {image_path}")
+            return cached_result
+
+        # 如果模型未加载，则加载默认模型
+        if self.model is None:
+            if not self.load_model():
+                raise Exception("无法加载模型")
         
         # 检查图像文件是否存在
         if not os.path.exists(image_path):
@@ -212,7 +241,6 @@ class DetectionService:
         # 从结果中获取检测框
         boxes = results.boxes
         for box in boxes:
-            #try:
             x1, y1, x2, y2 = box.xyxy[0].tolist()
             conf = box.conf[0].item()
             cls = box.cls[0].item()
@@ -233,7 +261,6 @@ class DetectionService:
                     class_counts[category_name]['items'].append(display_name)
             
             # 使用高饱和度的颜色
-            # 定义一组高饱和度的颜色
             HIGH_SATURATION_COLORS = {
                 '起重机': (255, 0, 0),     # 红色
                 '塔吊': (0, 255, 0),      # 绿色
@@ -248,7 +275,6 @@ class DetectionService:
                 '宿舍': (0, 255, 128),    # 青绿色
                 '厕所': (128, 255, 0)     # 黄绿色
             }
-            # 获取颜色，如果没有预定义则使用默认的蓝色
             color = HIGH_SATURATION_COLORS.get(display_name, (0, 0, 255))
             
             # 计算框的宽度
@@ -271,9 +297,6 @@ class DetectionService:
                 'color': color
             }
             detections.append(detection)
-            # except Exception as e:
-            #     self.logger.warning(f"处理单个检测框时出错: {str(e)}")
-            #     continue
         
         # 将检测后的图像编码为base64
         try:
@@ -286,7 +309,7 @@ class DetectionService:
         self.logger.info(f"检测到 {len(detections)} 个目标")
         self.logger.info(f"类别统计: {class_counts}")
         
-        return {
+        result = {
             'success': True,
             'data': {
                 'detections': detections,
@@ -295,20 +318,11 @@ class DetectionService:
                 'message': '检测成功'
             }
         }
-            
-        # except Exception as e:
-        #     self.logger.error(f"处理图像失败: {str(e)}")
-        #     return {
-        #         'success': False,
-        #         'data': {
-        #             'detections': [],
-        #             'class_counts': {},
-        #             'detected_image': None,
-        #             'message': f"处理图像失败: {str(e)}"
-        #         }
-        #     }
-    
-
+        
+        # 保存结果到缓存
+        self._save_to_cache(image_hash, result)
+        
+        return result
 
 # 创建服务实例
 detection_service = DetectionService()
