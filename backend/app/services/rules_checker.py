@@ -20,7 +20,7 @@ class RulesChecker:
             {
                 "id": "1.5.4-1",
                 "category": "加工场",
-                "description": "应设置钢筋加工场",
+                "description": "4、钢筋加工场",
                 "severity": "重要",
                 "check_method": self._check_steel_processing_exists
             },
@@ -35,14 +35,14 @@ class RulesChecker:
             {
                 "id": "1.5.1-1",
                 "category": "塔吊",
-                "description": "塔吊应覆盖钢筋加工场",
+                "description": "3）塔吊应覆盖钢筋加工场、装配式堆场",
                 "severity": "重要",
                 "check_method": self._check_tower_crane_covers_steel_processing
             },
             {
                 "id": "1.5.1-2",
                 "category": "塔吊",
-                "description": "塔吊应完全覆盖主楼",
+                "description": "2）塔吊应至少覆盖95%面积的地下车库，完全覆盖主楼",
                 "severity": "严重",
                 "check_method": self._check_tower_crane_covers_main_building
             },
@@ -50,21 +50,21 @@ class RulesChecker:
             {
                 "id": "1.5.8-1",
                 "category": "大门",
-                "description": "大门应直通主施工道路",
+                "description": "2）大门应直通主施工道路",
                 "severity": "重要",
                 "check_method": self._check_gate_connects_to_road
             },
             {
                 "id": "1.5.8-2",
                 "category": "大门",
-                "description": "应至少设置一个大门",
+                "description": "1）应至少设置一个大门",
                 "severity": "重要",
                 "check_method": self._check_gate_exists
             },
             {
                 "id": "1.5.7-1",
                 "category": "施工道路",
-                "description": "施工道路应连接上下人通道与大门",
+                "description": "2）施工道路应连接上下人通道与大门",
                 "severity": "重要",
                 "check_method": self._check_road_connects_gate
             },
@@ -72,21 +72,21 @@ class RulesChecker:
             {
                 "id": "1.10.8-6",
                 "category": "消防设施",
-                "description": "施工现场内应设置临时消防车道",
+                "description": "3）施工现场内应设置临时消防车道",
                 "severity": "严重",
                 "check_method": self._check_fire_truck_road_exists
             },
             {
                 "id": "1.10.8-7",
                 "category": "消防设施",
-                "description": "应设置洗车池和三级沉淀池",
+                "description": "仅设置一个大门的，洗车设备安排在大门内（含三级沉淀池）。设置多个大门或临时通道的，尽量在每个出土通道设置洗车设备和三级沉淀池等。",
                 "severity": "重要",
                 "check_method": self._check_car_wash_exists
             },
             {
                 "id": "1.10.1-1",
                 "category": "场地布局",
-                "description": "建筑物和设施应在红线范围内",
+                "description": "1、用地红线。应标明用地红线范围。",
                 "severity": "严重",
                 "check_method": self._check_within_red_line
             },
@@ -94,18 +94,19 @@ class RulesChecker:
             {
                 "id": "1.7.3-1",
                 "category": "材料堆场",
-                "description": "材料堆场应临近施工道路",
+                "description": "2）材料堆场设置应临近施工道路",
                 "severity": "一般",
                 "check_method": self._check_material_storage_near_road
             },
             {
                 "id": "1.7.3-2",
                 "category": "材料堆场",
-                "description": "危险品堆场应与其他区域分开设置",
+                "description": "3）危废堆放区、危险化学品堆放区、可（易）燃材料堆放区、原材料堆放区、半成品堆放区等应单独设置。",
                 "severity": "严重",
                 "check_method": self._check_hazardous_material_storage_isolation
             }
         ]
+
     
     def _check_tower_crane_covers_steel_processing(self, detections):
         """检查塔吊是否覆盖钢筋加工厂"""

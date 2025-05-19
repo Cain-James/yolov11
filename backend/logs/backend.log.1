@@ -1,4 +1,6 @@
-2025-05-19 03:48:16,841 - backend.app - ERROR - Exception on / [GET]
+2025-05-19 08:19:57,480 - backend.app.services.detection - INFO - 从缓存加载检测结果: /tmp/tmpbk2jq98l/3-住宅工程施工平面布置图-临电.jpg
+2025-05-19 08:39:58,338 - backend.app.main - INFO - 接收到根路由请求
+2025-05-19 08:39:58,338 - backend.app - ERROR - Exception on / [GET]
 Traceback (most recent call last):
   File "/home/bailey/anaconda3/envs/yyh_CAD_Iden/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
     response = self.full_dispatch_request()
@@ -27,8 +29,8 @@ Traceback (most recent call last):
   File "/home/bailey/anaconda3/envs/yyh_CAD_Iden/lib/python3.10/site-packages/flask/templating.py", line 98, in _get_source_fast
     raise TemplateNotFound(template)
 jinja2.exceptions.TemplateNotFound: index.html
-2025-05-19 03:49:05,283 - backend.app.main - INFO - 接收到根路由请求
-2025-05-19 03:49:05,284 - backend.app - ERROR - Exception on / [GET]
+2025-05-19 08:59:25,723 - backend.app.main - INFO - 接收到根路由请求
+2025-05-19 08:59:25,723 - backend.app - ERROR - Exception on / [GET]
 Traceback (most recent call last):
   File "/home/bailey/anaconda3/envs/yyh_CAD_Iden/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
     response = self.full_dispatch_request()
@@ -57,28 +59,8 @@ Traceback (most recent call last):
   File "/home/bailey/anaconda3/envs/yyh_CAD_Iden/lib/python3.10/site-packages/flask/templating.py", line 98, in _get_source_fast
     raise TemplateNotFound(template)
 jinja2.exceptions.TemplateNotFound: index.html
-2025-05-19 05:54:22,471 - backend.app - INFO - 应用启动
-2025-05-19 05:54:22,472 - backend.app - INFO - 正在加载默认模型...
-2025-05-19 05:54:22,472 - backend.app.services.detection - ERROR - 加载模型失败: stat: path should be string, bytes, os.PathLike or integer, not NoneType
-2025-05-19 05:54:22,472 - backend.app - ERROR - 默认模型加载失败，请检查模型文件是否正确
-2025-05-19 05:54:34,707 - backend.app.main - ERROR - 获取模型状态失败: 'DetectionService' object has no attribute 'get_model_status'
-2025-05-19 05:54:46,378 - backend.app - ERROR - 检测过程出错: 模型未准备就绪
-Traceback (most recent call last):
-  File "/mnt/data/Code/yyh/yolov11/backend/app/api/detection.py", line 47, in detect
-    result = detection_service.process_image(temp_path, model_path)
-  File "/mnt/data/Code/yyh/yolov11/backend/app/services/detection.py", line 225, in process_image
-    raise Exception("模型未准备就绪")
-Exception: 模型未准备就绪
-2025-05-19 05:56:42,084 - backend.app - INFO - 应用启动
-2025-05-19 05:56:42,085 - backend.app - INFO - 正在加载默认模型...
-2025-05-19 05:56:42,085 - backend.app.services.detection - INFO - 正在加载模型: /mnt/data/Code/yyh/yolov11/backend/models/best.pt
-2025-05-19 05:56:42,130 - backend.app.services.detection - INFO - 模型加载成功
-2025-05-19 05:56:42,130 - backend.app - INFO - 默认模型加载成功
-2025-05-19 05:57:24,868 - backend.app.main - ERROR - 获取模型状态失败: 'DetectionService' object has no attribute 'get_model_status'
-2025-05-19 05:58:00,648 - backend.app.services.detection - INFO - 检测到 12 个目标
-2025-05-19 05:58:00,649 - backend.app.services.detection - INFO - 类别统计: {'垂直运输机械': {'count': 2, 'items': ['塔吊']}, '临时设施-生活及办公区': {'count': 5, 'items': ['办公室', '宿舍', '厕所']}, '基础设施': {'count': 2, 'items': ['红线', '大门']}, '临时设施-生产加工区': {'count': 3, 'items': ['钢筋加工厂']}}
-2025-05-19 05:59:13,956 - backend.app.main - INFO - 接收到根路由请求
-2025-05-19 05:59:13,957 - backend.app - ERROR - Exception on / [GET]
+2025-05-19 09:05:00,895 - backend.app.main - INFO - 接收到根路由请求
+2025-05-19 09:05:00,895 - backend.app - ERROR - Exception on / [GET]
 Traceback (most recent call last):
   File "/home/bailey/anaconda3/envs/yyh_CAD_Iden/lib/python3.10/site-packages/flask/app.py", line 2528, in wsgi_app
     response = self.full_dispatch_request()
@@ -107,6 +89,16 @@ Traceback (most recent call last):
   File "/home/bailey/anaconda3/envs/yyh_CAD_Iden/lib/python3.10/site-packages/flask/templating.py", line 98, in _get_source_fast
     raise TemplateNotFound(template)
 jinja2.exceptions.TemplateNotFound: index.html
-2025-05-19 05:59:56,846 - backend.app.services.detection - INFO - 从缓存加载检测结果: /tmp/tmpzki26l17/3-住宅工程施工平面布置图-总平面.jpg
-2025-05-19 06:00:11,560 - backend.app.services.detection - INFO - 检测到 12 个目标
-2025-05-19 06:00:11,560 - backend.app.services.detection - INFO - 类别统计: {'垂直运输机械': {'count': 2, 'items': ['塔吊']}, '临时设施-生活及办公区': {'count': 6, 'items': ['宿舍', '办公室', '厕所']}, '基础设施': {'count': 2, 'items': ['红线', '大门']}, '临时设施-生产加工区': {'count': 2, 'items': ['钢筋加工厂']}}
+2025-05-19 09:19:59,221 - backend.app.main - ERROR - 获取模型状态失败: 'DetectionService' object has no attribute 'get_model_status'
+2025-05-19 09:20:08,728 - backend.app.services.detection - INFO - 从缓存加载检测结果: /tmp/tmpiw7evz49/2-商业广场工程施工地下室结构施工阶段现场总平面布置图.jpg
+2025-05-19 09:20:17,015 - backend.app.services.detection - INFO - 从缓存加载检测结果: /tmp/tmphtqmo_md/2-商业广场工程施工工程装饰装修施工阶段现场总平面布置图.jpg
+2025-05-19 09:20:21,393 - backend.app.services.detection - INFO - 从缓存加载检测结果: /tmp/tmp29fgaqs4/2-商业广场工程施工现场临电平面布置图.jpg
+2025-05-19 09:20:25,821 - backend.app.services.detection - INFO - 从缓存加载检测结果: /tmp/tmpxv06j0wb/2-商业广场工程施工现场平面布置图（主体、装修、临时临电、消防）-模型.jpg
+2025-05-19 09:20:29,665 - backend.app.services.detection - INFO - 从缓存加载检测结果: /tmp/tmpcb4fbeha/1-博物馆工程施工现场平面布置图(6张)-模型.jpg
+2025-05-19 09:20:34,688 - backend.app.services.detection - INFO - 从缓存加载检测结果: /tmp/tmpzaw99uk0/2-商业广场工程施工工程装饰装修施工阶段现场总平面布置图.jpg
+2025-05-19 09:20:58,204 - backend.app.services.detection - INFO - 从缓存加载检测结果: /tmp/tmp8x77hh9m/3-住宅工程施工平面布置图-临电.jpg
+2025-05-19 09:21:05,524 - backend.app.services.detection - INFO - 从缓存加载检测结果: /tmp/tmp8vk7a427/3-住宅工程施工平面布置图-临水.jpg
+2025-05-19 09:21:11,526 - backend.app.services.detection - INFO - 从缓存加载检测结果: /tmp/tmp47_j_j1y/2-商业广场工程施工工程装饰装修施工阶段现场总平面布置图.jpg
+2025-05-19 09:21:13,857 - backend.app.services.detection - INFO - 从缓存加载检测结果: /tmp/tmpwrq5h_pl/2-商业广场工程施工现场临水平面布置图.jpg
+2025-05-19 09:21:17,586 - backend.app.services.detection - INFO - 从缓存加载检测结果: /tmp/tmp0shom5vn/2-商业广场工程施工现场临电平面布置图.jpg
+2025-05-19 09:21:20,253 - backend.app.services.detection - INFO - 从缓存加载检测结果: /tmp/tmpigjbw9lo/2-商业广场工程施工现场平面布置图（主体、装修、临时临电、消防）-模型.jpg

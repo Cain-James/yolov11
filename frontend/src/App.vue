@@ -1,9 +1,9 @@
 <template>
   <div class="app-container">
     <el-container>
-      <el-header>
+      <!-- <el-header>
         <h1 class="main-title">海南机器管招投标项目-建筑图纸识别系统</h1>
-      </el-header>
+      </el-header> -->
       <el-main>
         <detection-panel />
       </el-main>
@@ -32,7 +32,7 @@ export default defineComponent({
   background: #f5f7fa;
 }
 
-.el-header {
+/* .el-header {
   background: linear-gradient(135deg, #409EFF 0%, #2c3e50 100%);
   color: white;
   text-align: center;
@@ -46,10 +46,12 @@ export default defineComponent({
   font-size: 24px;
   font-weight: 600;
   letter-spacing: 1px;
-}
+} */
 
 .el-main {
   padding: 20px;
+  margin-top: 0;
+  height: calc(100vh - 60px); /* 减去footer的高度 */
 }
 
 .el-footer {
@@ -58,5 +60,6 @@ export default defineComponent({
   padding: 20px;
   background: #ffffff;
   box-shadow: 0 -2px 12px 0 rgba(0,0,0,0.05);
+  height: 60px;
 }
 </style>
